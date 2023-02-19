@@ -1,0 +1,22 @@
+.navbar-custom {
+  background-color: #3c413f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+}
+
+.navbar-brand {
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  margin-left: 20px;
+}
+.btn-yellow {
+  background: linear-gradient(90deg, #ffd36a, #ffebbb);
+  color: black;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 7px;
+  float: right;
+  margin-right: 20px;
+}

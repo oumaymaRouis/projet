@@ -1,0 +1,87 @@
+.card {
+  width: 300px;
+  height: 410px;
+  background-color: #3c413f;
+  border-radius: 20px;
+}
+.card-image {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.card-body {
+  margin-left: 15px;
+}
+.card-title {
+  color: #f6f6f6;
+  font-size: 16px;
+}
+.card-description {
+  color: #f6f6f6;
+  font-size: 14px;
+}
+.box-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.first-des {
+  font-size: 10px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #555c59;
+  color: #f6f6f6;
+}
+.second-des {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #555c59;
+  color: #f6f6f6;
+}
+.third-des {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #555c59;
+  color: #f6f6f6;
+}
+
+.stock-container {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  color: #f6f6f6;
+}
+.societe {
+  font-size: 14px;
+  font-weight: 600;
+}
+.stock {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.card-button {
+  width: 145px;
+  height: 40px;
+  color: #0d120e;
+  background-color: #ffd369;
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}

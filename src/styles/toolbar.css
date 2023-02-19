@@ -1,0 +1,24 @@
+.main-container {
+  background-color: #3c413f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-title {
+  color: white;
+  padding-left: 140px;
+}
+.report-button-container {
+  padding-top: 15px;
+  padding-right: 140px;
+}
+
+.report-button {
+  width: 145px;
+  height: 40px;
+  color: #0d120e;
+  background: linear-gradient(90deg, #ffd369, #ffebbb);
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}

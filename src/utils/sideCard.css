@@ -1,0 +1,58 @@
+.main-right-side-container {
+  width: 350px;
+  height: 120px;
+  background-color: #3c413f;
+  border-radius: 10px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+.right-card-image {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.right-card {
+  display: flex;
+}
+.right-card-body-title {
+  margin-left: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+.right-card-title {
+  font-size: 14px;
+  color: #f6f6f6;
+}
+.right-card-price {
+  font-size: 14px;
+  color: #f6f6f6;
+}
+
+.right-societe {
+  margin-left: 14px;
+  color: #f6f6f6;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.right-button-container {
+  margin-left: 100px;
+}
+.right-card-button {
+  width: 70px;
+  height: 25px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  border: 0;
+}
+.icon-view {
+  color: #f6f6f6;
+  background-color: none;
+
+  margin-left: 15px;
+}
+.icon-view:hover {
+  color: black;
+  margin-left: 15px;
+}
