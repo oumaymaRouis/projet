@@ -116,7 +116,7 @@ class LastForm extends Component {
                   <span class="checkmark"></span>
                 </label>
                 <label class="container1">
-                  <div className="words">TGarantie 1 an</div>
+                  <div className="words">TGarantie 1 annnnnn</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
