@@ -74,48 +74,48 @@ class LastForm extends Component {
             <div className="fiche-container">
               <h1>Fiche Technique</h1>
               <div className="checkbox-container">
-                <label class="container">
+                <label class="container1">
                   <div className="words">Marque: DELL</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">Processeur: Intel Core i3</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">Mémoire: 4 Go</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">
                     Fréquence Processeur: 3.00 GHz up to 4,10 GHz Turbo max
                   </div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">
                     Résolution Ecran: 1366 x 768 pixels
                   </div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">Type Processeur Dual Core</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">
                     Carte Graphique: Graphique Intégrée
                   </div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                 </label>
-                <label class="container">
+                <label class="container1">
                   <div className="words">TGarantie 1 an</div>
                   <input type="checkbox" />
                   <span class="checkmark"></span>
