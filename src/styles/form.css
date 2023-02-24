@@ -1,7 +1,6 @@
 .main-form-container {
-  padding-left: 300px;
-  display: flex;
-  justify-content: center;
+  position: static;
+  padding-left: 400px;
 }
 
 .title-container {
@@ -71,12 +70,6 @@ input[type="checkbox"]:checked::after {
   font-size: 12px;
 }
 
-.main-form-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .content-container {
   max-width: 1000px;
   width: 100%;
@@ -86,16 +79,4 @@ input[type="checkbox"]:checked::after {
 }
 .card {
   margin-bottom: 20px;
-}
-
-@media screen and (max-width: 900px) {
-  .card-container {
-    width: 45%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card-container {
-    width: 100%;
-  }
 }
