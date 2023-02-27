@@ -5,9 +5,10 @@
 }
 
 .title-container1 h1 {
-  margin-left: 550px;
-  font-size: 17px;
+  margin-left: 500px;
+  font-size: 25px;
   color: #ffffff;
+  padding-top: 20px;
 }
 
 .img-container {
@@ -20,7 +21,7 @@
 .main {
   background-color: #3c413f;
   width: 700px;
-  height: 1350px;
+  height: 1400px;
 }
 
 .name-container h2 {
@@ -193,10 +194,12 @@ td:last-child {
   margin-left: 15px;
   margin-top: 30px;
 }
+
 .underline-container h1 {
   color: #f1f1f5;
   font-size: 20px;
   margin-left: 15px;
+  margin-top: 40px;
 }
 .btn-yellow {
   background: #ffd369;
@@ -207,8 +210,9 @@ td:last-child {
   border-radius: 7px;
   float: right;
   width: 170px;
-  margin-top: -130px;
-  margin-right: -485px;
+  margin-top: -140px;
+  margin-right: -600px;
+
   font-weight: 700;
 }
 .btn-container {

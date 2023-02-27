@@ -125,6 +125,7 @@ class LastForm extends Component {
             <div className="line-container">
               <hr />
             </div>
+
             <div className="underline-container">
               <h1>Are You Interested In This Laptop ?</h1>
               <div className="btn-container">
