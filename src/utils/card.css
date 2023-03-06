@@ -1,6 +1,6 @@
 .card {
   width: 300px;
-  height: 430px;
+  height: 415px;
   background-color: #3c413f;
   border-radius: 20px;
 }
@@ -9,12 +9,17 @@
   margin-top: 15px;
   margin-left: 15px;
 }
+.upper-container {
+  display: flex;
+  justify-content: space-between;
+}
 .card-body {
   margin-left: 15px;
 }
 .card-title {
   color: #f6f6f6;
   font-size: 16px;
+  width: 90%;
 }
 .card-description {
   height: 40px;
@@ -27,31 +32,10 @@
   justify-content: space-between;
   padding-bottom: 15px;
 }
-.first-des {
-  font-size: 10px;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #555c59;
-  color: #f6f6f6;
-}
-.second-des {
-  font-size: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #555c59;
-  color: #f6f6f6;
-}
-.third-des {
-  font-size: 10px;
+.card-price {
+  margin-top: 15px;
+  margin-right: 15px;
+  font-size: 17 px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,13 +47,15 @@
 }
 
 .stock-container {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
   padding-bottom: 10px;
   color: #f6f6f6;
 }
 .societe {
+  color: #fff2d2;
   font-size: 14px;
   font-weight: 600;
 }
@@ -81,6 +67,7 @@
 .card-button {
   width: 145px;
   height: 40px;
+  margin-top: 15px;
   color: #0d120e;
   background-color: #ffd369;
   border-radius: 10px;
