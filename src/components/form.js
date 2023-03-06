@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Card from "../utils/card";
+import API from "../services/api";
+import axios from "axios";
 import "../styles/lastForm.css";
 import logo from "../assets/Logo.png";
 import logo1 from "../assets/Logo1.png";
@@ -20,6 +22,43 @@ const options = [
 ];
 
 const Form = () => {
+  const [productNames, setProductNames] = useState([]);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const url =
+      "https://fffb-197-240-25-234.eu.ngrok.io/predict2?choice=1&budget_min=3100&budget_max=4000";
+
+    const requestOptions = {
+      headers: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    };
+
+    axios
+      .get(url, requestOptions)
+      .then((response) => {
+        var formatedArray = [];
+        for (let key in response.data) {
+          formatedArray.push({
+            name: key,
+            price: response.data[key][0],
+            score: response.data[key][1],
+            productURL: response.data[key][2],
+            imagepc: response.data[key][3],
+            stock: response.data[key][4],
+            boutique: response.data[key][5],
+            description: response.data[key][6],
+          });
+        }
+
+        setProductNames(formatedArray);
+        setError(null);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }, []);
+
   const [isSortOpen, setIsSortOpen] = useState(false);
   const toggleSortDropdown = () => {
     setIsSortOpen(!isSortOpen);
@@ -48,78 +87,20 @@ const Form = () => {
           </div>
         </div>
         <div className="content-container">
-          <Card
-            image={logo}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo1}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo2}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo3}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo4}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo5}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo7}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo8}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
-          <Card
-            image={logo9}
-            title="ASUS ExpertBook L1"
-            description="Écran 14 HD /- Processeur: Intel Core i3-1115G4 (3.00 GHz up to 4,10 GHz Turbo max 
-                , 6 Mo de mémoire cache, Dual-Core) - Système d'exploitation:"
-            societe="Mytek  ."
-            stock="  En Stock"
-          ></Card>
+          {productNames.length > 0 && (
+            <div>
+              {productNames.map((productName, idx) => (
+                <Card
+                  key={idx}
+                  image={productName.imagepc}
+                  title={productName.name}
+                  description={productName.description}
+                  societe={productName.boutique}
+                  stock={productName.stock}
+                ></Card>
+              ))}
+            </div>
+          )}
         </div>
       </form>
     </div>
