@@ -1,10 +1,11 @@
 .card {
   width: 300px;
-  height: 410px;
+  height: 430px;
   background-color: #3c413f;
   border-radius: 20px;
 }
 .card-image {
+  width: 120px;
   margin-top: 15px;
   margin-left: 15px;
 }
@@ -16,6 +17,7 @@
   font-size: 16px;
 }
 .card-description {
+  height: 40px;
   color: #f6f6f6;
   font-size: 14px;
 }

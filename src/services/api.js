@@ -18,11 +18,17 @@ const API = () => {
     axios
       .get(url, requestOptions)
       .then((response) => {
-        console.log(response.data);
-        const productNames = Object.keys(response.data).filter((key) => {
-          return typeof response.data[key] === "object";
-        });
-        setProductNames(productNames);
+        var formatedArray = [];
+        for (let key in response.data) {
+          formatedArray.push({
+            name: key,
+            price: response.data[key][0],
+            score: response.data[key][1],
+            image: response.data[key][2],
+          });
+        }
+
+        setProductNames(formatedArray);
         setError(null);
       })
       .catch((error) => {
@@ -35,7 +41,7 @@ const API = () => {
       {productNames.length > 0 && (
         <div>
           {productNames.map((productName, idx) => (
-            <div key={idx}>{productName}</div>
+            <div key={idx}>{productName.name}</div>
           ))}
         </div>
       )}
