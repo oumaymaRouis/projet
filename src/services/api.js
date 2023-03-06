@@ -18,6 +18,7 @@ const API = () => {
     axios
       .get(url, requestOptions)
       .then((response) => {
+        console.log(response.data);
         const productNames = Object.keys(response.data).filter((key) => {
           return typeof response.data[key] === "object";
         });
