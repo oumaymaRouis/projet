@@ -2,31 +2,25 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import souris from "../assets/souris.png";
+import macbook from "../assets/macbook.png";
 import laptop from "../assets/laptop.jpg";
-import pcPortablee from "../assets/pcPortablee.png";
-import pc1 from "../assets/pc1.png";
-
+import Basics from "../assets/Basics.png";
 import "../styles/Slide.css";
-import Home from "../assets/Home.jpg";
+import GamingLaptop from "../assets/GamingLaptop.jpg";
 
 export default function Slide() {
   const navigate = useNavigate();
 
   const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
+    gaming: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
+      items: 3,
     },
-    tablet: {
+    performance: {
       breakpoint: { max: 1024, min: 464 },
       items: 2,
     },
-    mobile: {
+    basic: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
@@ -42,24 +36,50 @@ export default function Slide() {
         <h1>Search By :</h1>
       </div>
       <Carousel responsive={responsive}>
-        <div className="card-two">
-          <img className="souris" src={souris} style={{ width: "200px" }} />
+        <div className="first-choice">
+          <img
+            className="macbook"
+            alt=""
+            src={macbook}
+            style={{ width: "250px", height: "140px" }}
+          />
+          <div className="text-block">
+            <h2>MacBook</h2>
+          </div>
         </div>
+
         <div className="card-three">
-          <img className="laptop" src={laptop} style={{ width: "200px" }} />
+          <img
+            className="laptop"
+            alt=""
+            src={laptop}
+            style={{ width: "250px", height: "140px" }}
+          />
+          <div className="text-block">
+            <h2>Performance</h2>
+          </div>
         </div>
         <div className="card-four">
           <img
-            className="pcPortablee"
-            src={pcPortablee}
-            style={{ width: "200px" }}
+            className="Basics"
+            alt=""
+            src={Basics}
+            style={{ width: "250px", height: "140px" }}
           />
+          <div className="text-block">
+            <h2>Basic</h2>
+          </div>
         </div>
         <div className="card-five">
-          <img className="Home" src={Home} style={{ width: "200px" }} />
-        </div>
-        <div className="card-six">
-          <img className="pc1" src={pc1} style={{ width: "200px" }} />
+          <img
+            className="GamingLaptop"
+            alt=""
+            src={GamingLaptop}
+            style={{ width: "250px", height: "140px" }}
+          />
+          <div className="text-block">
+            <h2>Gaming</h2>
+          </div>
         </div>
       </Carousel>
       <div className="btn-container">

@@ -4,7 +4,7 @@ import Slider from "@mui/material/Slider";
 import "../styles/price.css";
 
 function valuetext(value) {
-  return `${value} TND`;
+  return `${value} DT`;
 }
 
 export default function Price() {
