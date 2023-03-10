@@ -28,7 +28,6 @@ class Middle extends Component {
           </div>
           <div className="slide-container">
             <div className="slide-writing">
-              <h1>500 DTN - 3850 DTN</h1>
               <Price></Price>
             </div>
           </div>

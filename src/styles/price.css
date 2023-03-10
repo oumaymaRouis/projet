@@ -28,5 +28,7 @@
   display: none;
 }
 .value {
-  font-size: 15px;
+  font-size: 25px;
+  color: #d8d8d8;
+  margin-top: -22px;
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://fffb-197-240-25-234.eu.ngrok.io";
+const API_URL = "https://17ee-196-234-125-11.eu.ngrok.io";
 
 const getProducts = async () => {
   try {

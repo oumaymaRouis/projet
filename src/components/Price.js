@@ -16,6 +16,9 @@ export default function Price() {
 
   return (
     <div className="slide">
+      <div className="value">
+        {valuetext(value[0])} - {valuetext(value[1])}
+      </div>
       <Box sx={{ width: 390 }}>
         <Slider
           getAriaLabel={() => "Small steps"}
@@ -27,9 +30,6 @@ export default function Price() {
           max={3850}
         />
       </Box>
-      <div className="value">
-        {valuetext(value[0])} - {valuetext(value[1])}
-      </div>
     </div>
   );
 }
