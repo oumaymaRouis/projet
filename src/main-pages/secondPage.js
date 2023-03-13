@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import Form from "../components/form";
+import Products from "../components/Products";
 import SearchBar from "../components/searchBar";
 import SideBar from "../components/sideBar";
 import Toolbar from "../components/toolbar";
@@ -11,7 +11,7 @@ function SecondPage() {
       <Toolbar></Toolbar>
       <SearchBar></SearchBar>
       <SideBar></SideBar>
-      <Form></Form>
+      <Products></Products>
       <Footer></Footer>
     </>
   );

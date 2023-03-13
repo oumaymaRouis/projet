@@ -1,0 +1,131 @@
+.main-form-container {
+  position: static;
+  padding-left: 400px;
+}
+
+.title-container {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+.title p {
+  color: #f6f6f6;
+  font-size: 24px;
+}
+.sort {
+  padding-top: 35px;
+  height: min-content;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+label {
+  color: white;
+  margin-right: 0.5rem;
+}
+
+select {
+  background: none;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+option {
+  background-color: black;
+  color: white;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  color: #92929d;
+  cursor: pointer;
+  font-weight: bold;
+}
+.sort-button svg {
+  margin-left: 15px;
+}
+
+.content-container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    justify-content: center;
+  }
+}
+
+.card {
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .main-form-container {
+    position: static;
+    padding-left: 0;
+  }
+
+  .title-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title p {
+    font-size: 20px;
+  }
+
+  .sort {
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .dropdown-options {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1b1b1b;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown-options label {
+    color: #f6f6f6;
+  }
+
+  .sort-button {
+    margin-top: 15px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

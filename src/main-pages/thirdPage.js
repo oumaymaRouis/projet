@@ -3,7 +3,7 @@ import SearchBar from "../components/searchBar";
 import SideBar from "../components/sideBar";
 import Toolbar from "../components/toolbar";
 import Footer from "../components/Footer";
-import LastForm from "../components/lastForm";
+import SelectedProduct from "../components/SelectedProduct";
 
 function ThirdPage() {
   return (
@@ -11,7 +11,7 @@ function ThirdPage() {
       <Toolbar></Toolbar>
       <SearchBar></SearchBar>
       <SideBar></SideBar>
-      <LastForm></LastForm>
+      <SelectedProduct></SelectedProduct>
       <Footer></Footer>
     </>
   );

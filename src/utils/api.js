@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://17ee-196-234-125-11.eu.ngrok.io";
+const API_URL = "https://bcec-197-240-237-104.eu.ngrok.io";
 
 const getProducts = async () => {
   try {
-    const url = `${API_URL}/predict2?choice=1&budget_min=3100&budget_max=4000`;
+    const url = `${API_URL}/predict2?choice=1&budget_min=3000&budget_max=4000`;
     const requestOptions = {
       headers: {
         "ngrok-skip-browser-warning": "69420",
