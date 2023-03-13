@@ -1,0 +1,137 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #282828;
+  padding: 50px;
+}
+
+.footer-section {
+  flex: 1;
+  margin-left: 50px;
+}
+
+.footer-section h1 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  color: #b9b8bb;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  color: #b9b8bb;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section li {
+  color: #b9b8bb;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.footer-section p {
+  color: #b9b8bb;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icons a {
+  background-color: #28303f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+
+  font-size: 30px;
+
+  border-radius: 5px;
+  margin-right: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+.subscribe {
+  display: flex;
+  align-items: center;
+}
+
+.subscribe input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  width: 250px;
+  font-size: 16px;
+}
+
+.subscribe button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 0 5px 5px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.subscribe button:hover {
+  background-color: #0069d9;
+}
+
+.subscribe button i {
+  margin-right: 8px;
+}
+.subscribe-container {
+  display: flex;
+  align-items: center;
+  background-color: none;
+}
+
+.subscribe-container input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: #282828;
+  border-radius: 7px 0 0 7px;
+  width: 250px;
+  font-size: 16px;
+}
+
+.subscribe-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 0 5px 5px 0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.subscribe-container button:hover {
+  background-color: #13559b;
+}
+
+.subscribe-container button svg {
+  margin-right: 8px;
+  font-size: 20px;
+}
+.copyright p {
+  font-size: 12px;
+}

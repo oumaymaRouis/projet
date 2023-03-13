@@ -1,0 +1,179 @@
+.sidebar-container {
+  padding-left: 70px;
+  height: 0px;
+}
+.job-alert-container {
+  background-color: #44444f;
+  width: 300px;
+  height: 230px;
+  border-radius: 10px;
+}
+.input-newsletter-container {
+  padding-left: 20px;
+}
+.input-newsletter {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.joinning {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  color: #fafafb;
+  padding-left: 20px;
+}
+.activate-button-container {
+  display: flex;
+  padding-left: 20px;
+}
+.activate-button {
+  font-weight: bold;
+  background-color: #ffd369;
+  border-radius: 5px;
+  color: black;
+  width: 100px;
+  height: 30px;
+  border: 0;
+}
+
+.multiselect-dropdown {
+  position: relative;
+  padding-top: 25px;
+  width: 300px;
+}
+
+.dropdown-options1 {
+  top: 100%;
+  left: 0;
+  border: none;
+  background-color: none;
+  padding: 10px;
+}
+
+.dropdown-options1 label {
+  display: block;
+  margin-bottom: 5px;
+  color: #f6f6f6;
+}
+
+.categorie-button {
+  width: 300px;
+  background: none;
+  border: none;
+  color: #f6f6f6;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.salary-button {
+  width: 300px;
+  background: none;
+  border: none;
+  color: #f6f6f6;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.categorie-button svg {
+  margin-left: 215px;
+}
+.salary-button svg {
+  margin-left: 235px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: none;
+  border: 1px solid #979797;
+  border-radius: 2px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #3dd598;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  width: 3px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-number {
+  position: absolute;
+  left: 275px;
+  border-radius: 5px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-color: #d1d1d1;
+  color: black;
+  text-align: center;
+  line-height: 20px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.dropdown-options2 {
+  position: relative;
+  top: 100%;
+  left: 0;
+  border: none;
+  background-color: none;
+  padding: 10px;
+}
+
+.dropdown-options2 label {
+  display: block;
+  margin-bottom: 5px;
+  color: #f6f6f6;
+}
