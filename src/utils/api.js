@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "https://bcec-197-240-237-104.eu.ngrok.io";
+const API_URL = "https://600c-196-234-125-11.eu.ngrok.io";
 
-const getProducts = async () => {
+const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
   try {
-    const url = `${API_URL}/predict2?choice=1&budget_min=3000&budget_max=4000`;
+    const url = `${API_URL}/predict2?choice=1&budget_min=${minPrice}&budget_max=${maxPrice}`;
     const requestOptions = {
       headers: {
         "ngrok-skip-browser-warning": "69420",
@@ -12,6 +12,8 @@ const getProducts = async () => {
     };
     const response = await axios.get(url, requestOptions);
     const formatedArray = [];
+    console.clear();
+    console.log(response.data);
     for (let key in response.data) {
       formatedArray.push({
         name: key,
