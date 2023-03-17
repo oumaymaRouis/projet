@@ -28,27 +28,38 @@ export default function Slide({
     },
   };
 
+  const selectedCategory = (categoryId) =>
+    categoryId === categorySelected ? "selected" : "";
+
   return (
     <div className="Slide">
       <div className="writing-carousel">
         <h1>Search By :</h1>
       </div>
       <Carousel responsive={responsive}>
-        <div onClick={() => onCategoryClick(1)} className="first-choice">
+        <div
+          onClick={() => onCategoryClick(1)}
+          className={`first-choice ${selectedCategory(1)}`}
+        >
           <CarousselImg img={macbook} name={"MacBook"} />
-          {categorySelected === 1 ? <div className="">done</div> : null}
         </div>
-        <div onClick={() => onCategoryClick(2)} className="card-three">
+        <div
+          onClick={() => onCategoryClick(2)}
+          className={`card-three ${selectedCategory(2)}`}
+        >
           <CarousselImg img={laptop} name={"Performance"} />
-          {categorySelected === 2 ? <div className="">done</div> : null}
         </div>
-        <div onClick={() => onCategoryClick(3)} className="card-four">
+        <div
+          onClick={() => onCategoryClick(3)}
+          className={`card-four ${selectedCategory(3)}`}
+        >
           <CarousselImg img={Basics} name={"Basics"} />
-          {categorySelected === 3 ? <div className="000">done</div> : null}
         </div>
-        <div onClick={() => onCategoryClick(4)} className="card-five">
+        <div
+          onClick={() => onCategoryClick(4)}
+          className={`card-five ${selectedCategory(4)}`}
+        >
           <CarousselImg img={GamingLaptop} name={"Gaming"} />
-          {categorySelected === 4 ? <div className="">done</div> : null}
         </div>
       </Carousel>
       <div className="btn-container">

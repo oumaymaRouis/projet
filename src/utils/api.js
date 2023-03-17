@@ -4,7 +4,7 @@ const API_URL = "https://600c-196-234-125-11.eu.ngrok.io";
 
 const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
   try {
-    const url = `${API_URL}/predict2?choice=1&budget_min=${minPrice}&budget_max=${maxPrice}`;
+    const url = `${API_URL}/predict2?choice=${categoryId}&budget_min=${minPrice}&budget_max=${maxPrice}`;
     const requestOptions = {
       headers: {
         "ngrok-skip-browser-warning": "69420",
