@@ -3,16 +3,17 @@ import Card from "../utils/card";
 import { getProducts } from "../utils/api";
 import "../styles/products.css";
 
-const Form = () => {
+const Form = ({ categoryId, minPrice, maxPrice }) => {
   const [productNames, setProductNames] = useState([]);
   const [error, setError] = useState(null);
   const [productCount, setProductCount] = useState(0);
   const [sortBy, setSortBy] = useState("date");
+  console.log({ categoryId, minPrice, maxPrice });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const products = await getProducts();
+        const products = await getProducts({ categoryId, minPrice, maxPrice });
         setProductNames(products);
         setProductCount(products.length);
         setError(null);
@@ -22,7 +23,7 @@ const Form = () => {
     };
 
     fetchData();
-  }, []);
+  }, [categoryId, minPrice, maxPrice]);
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);

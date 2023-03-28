@@ -7,13 +7,7 @@ function valuetext(value) {
   return `${value} DT`;
 }
 
-export default function Price() {
-  const [value, setValue] = React.useState([3100, 4000]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
+export default function Price({ value, onPriceChange }) {
   return (
     <div className="slide">
       <div className="value">
@@ -23,11 +17,12 @@ export default function Price() {
         <Slider
           getAriaLabel={() => "Small steps"}
           value={value}
-          onChange={handleChange}
+          onChange={onPriceChange}
           valueLabelDisplay="off"
           getAriaValueText={valuetext}
-          min={3100}
-          max={4000}
+          min={0}
+          max={10000}
+          step={100}
         />
       </Box>
     </div>

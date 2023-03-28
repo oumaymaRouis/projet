@@ -1,13 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import "./card.css";
 
 function Card(props) {
   const navigate = useNavigate();
+  let [searchParams, setSearchParams] = useSearchParams();
+  let params = new URL(document.location).searchParams;
+  const price = params.get("price");
 
   const handleButtonClick = () => {
-    navigate("/thirdpage");
+    navigate({
+      pathname: "/thirdpage",
+      search: createSearchParams({
+        title: props.title,
+        price: price,
+        category: params.get("category"),
+      }).toString(),
+    });
   };
 
   return (
