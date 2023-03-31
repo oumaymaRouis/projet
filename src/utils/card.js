@@ -1,5 +1,7 @@
 import React from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFloppyDisk, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { useSearchParams } from "react-router-dom";
 
 import "./card.css";
@@ -33,7 +35,28 @@ function Card(props) {
 
         <div className="stock-container">
           <div className="societe">{props.societe}</div>
-          <div className="stock">{props.stock}</div>
+          <div className="stocking">
+            <span
+              className={`card-stock ${
+                props.stock === "En stock" ? "en-stock" : "hors-stock"
+              }`}
+            >
+              {props.stock}
+              {props.stock === "En stock" ? (
+                <FontAwesomeIcon
+                  icon={faFloppyDisk}
+                  style={{ color: "green" }}
+                  className="card-Disk"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faFloppyDisk}
+                  style={{ color: "red" }}
+                  className="card-Disk"
+                />
+              )}
+            </span>
+          </div>
         </div>
         <button className="card-button" onClick={handleButtonClick}>
           Check it out

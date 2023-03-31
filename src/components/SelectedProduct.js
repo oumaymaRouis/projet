@@ -10,6 +10,9 @@ const SelectedProduct = ({ product }) => {
           <SelectedCard
             key={1}
             title={product.name}
+            ecran={product.ecran}
+            resolution={product.resolution}
+            pcMarque={product.pcMarque}
             description={product.description}
             price={product.price}
             societe={product.boutique}
@@ -18,7 +21,7 @@ const SelectedProduct = ({ product }) => {
             disqueDur={product.disqueDur}
             memoireRam={product.memoireRam}
             processeur={product.processeur}
-            image={product.imagepc}
+            imagepc={product.imagepc}
             productURL={product.productURL}
           ></SelectedCard>
         </div>

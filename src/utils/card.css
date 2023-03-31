@@ -59,7 +59,10 @@
   font-size: 14px;
   font-weight: 600;
 }
-.stock {
+.card-Disk {
+  padding-left: 7px;
+}
+.stocking {
   font-size: 14px;
   font-weight: lighter;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import dell from "../assets/dell.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
@@ -22,10 +22,31 @@ function SelectedCard(props) {
             <br></br>
             <div className="nom-container">
               <h3>
-                <span className="societe">{props.societe} </span>
-                <span className="stock">{props.stock} </span>
-                <FontAwesomeIcon icon={faFloppyDisk} className="icon" />
+                <span className="societe">{props.societe}</span>
+                <span>
+                  <span
+                    className={`stock ${
+                      props.stock === "En stock" ? "en-stock" : "hors-stock"
+                    }`}
+                  >
+                    {props.stock}
+                    {props.stock === "En stock" ? (
+                      <FontAwesomeIcon
+                        icon={faFloppyDisk}
+                        style={{ color: "green" }}
+                        className="Disk"
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faFloppyDisk}
+                        style={{ color: "red" }}
+                        className="Disk"
+                      />
+                    )}
+                  </span>
+                </span>
               </h3>
+
               <div className="icon2-container">
                 <FontAwesomeIcon icon={faBookmark} className="icon2" />
                 <FontAwesomeIcon icon={faShareAlt} className="icon3" />
@@ -50,7 +71,7 @@ function SelectedCard(props) {
             </thead>
             <tbody>
               <tr>
-                <td>14 Pouces HD</td>
+                <td>{props.ecran}</td>
                 <td>{props.processeur}</td>
                 <td>{props.memoireRam}</td>
                 <td>{props.disqueDur}</td>
@@ -64,6 +85,24 @@ function SelectedCard(props) {
           <div className="fiche-container">
             <h1>Fiche Technique</h1>
             <div className="checkbox-container1">
+              <label class="container1">
+                <div className="words">Marque: {props.pcMarque}</div>
+                <input type="checkbox" />
+                <span class="checkmark1"></span>
+              </label>
+              <br></br>
+              <label class="container1">
+                <div className="words">Ecran: {props.ecran}</div>
+                <input type="checkbox" />
+                <span class="checkmark1"></span>
+              </label>
+              <br></br>
+              <label class="container1">
+                <div className="words">Resolution: {props.resolution}</div>
+                <input type="checkbox" />
+                <span class="checkmark1"></span>
+              </label>
+              <br></br>
               <label class="container1">
                 <div className="words">Processeur: {props.processeur}</div>
                 <input type="checkbox" />
@@ -98,9 +137,14 @@ function SelectedCard(props) {
           <div className="underline-container">
             <h1>Are You Interested In This Laptop ?</h1>
             <div className="btn-container">
-              <button className="btn btn-yellow" href={props.productURL}>
+              <a
+                className="btn btn-yellow"
+                href={props.productURL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Check it out
-              </button>
+              </a>
             </div>
           </div>
         </div>

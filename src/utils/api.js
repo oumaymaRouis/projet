@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://3bcf-196-234-125-11.eu.ngrok.io";
+const API_URL = "https://a4ac-196-234-125-11.eu.ngrok.io";
 
 const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
   try {
@@ -21,13 +21,16 @@ const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
         score: response.data[key][1],
         productURL: response.data[key][2],
         imagepc: response.data[key][3],
-        processeur: response.data[key][4],
-        memoireRam: response.data[key][5],
-        disqueDur: response.data[key][6],
-        carteGraphique: response.data[key][7],
-        stock: response.data[key][8],
-        boutique: response.data[key][9],
-        description: response.data[key][10],
+        pcMarque: response.data[key][4],
+        processeur: response.data[key][5],
+        ecran: response.data[key][6],
+        resolution: response.data[key][7],
+        memoireRam: response.data[key][8],
+        disqueDur: response.data[key][9],
+        carteGraphique: response.data[key][10],
+        stock: response.data[key][11],
+        boutique: response.data[key][12],
+        description: response.data[key][13],
       });
     }
     return formatedArray;
