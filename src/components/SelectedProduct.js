@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/SelectedProduct.css";
+
 import SelectedCard from "../utils/selectedCard";
 
 const SelectedProduct = ({ product }) => {
@@ -14,6 +14,12 @@ const SelectedProduct = ({ product }) => {
             price={product.price}
             societe={product.boutique}
             stock={product.stock}
+            carteGraphique={product.carteGraphique}
+            disqueDur={product.disqueDur}
+            memoireRam={product.memoireRam}
+            processeur={product.processeur}
+            image={product.imagepc}
+            productURL={product.productURL}
           ></SelectedCard>
         </div>
       )}
