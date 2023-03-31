@@ -44,11 +44,19 @@
   filter: blur(3px);
 }
 
+.first-choice.selected img,
+.card-three.selected img,
+.card-four.selected img,
+.card-five.selected img {
+  filter: blur(3px);
+}
+
 .text-block {
   position: absolute;
   margin-bottom: 6px;
   bottom: 0;
   left: 0;
+  width: 61.5%;
   width: 61.5%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -63,9 +71,19 @@
   justify-content: center;
 }
 
+.text-block.hidden {
+  display: none;
+}
+
 .text-block h2 {
   font-size: 12px;
   margin: -10px 0 0;
+}
+.Slide {
+  z-index: 9;
+  margin-top: -160px;
+  width: 70%;
+  margin-left: 190px;
 }
 
 .btn-yellow-two {
@@ -84,4 +102,19 @@
   height: 170px;
   margin-left: -150px;
   padding-top: 90px;
+}
+
+.first-choice img,
+.card-three img,
+.card-four img,
+.card-five img {
+  border-radius: 10px;
+  height: 120px;
+}
+
+.first-choice.selected img,
+.card-three.selected img,
+.card-four.selected img,
+.card-five.selected img {
+  filter: blur(3px);
 }

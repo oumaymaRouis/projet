@@ -15,7 +15,7 @@ function SelectedCard(props) {
             <h1> {props.price}</h1>
           </div>
           <div className="img-container">
-            <img className="dell" src={dell} />
+            <img className="dell" src={props.imagepc} />
           </div>
           <div className="name-container">
             <h2>{props.title}</h2>
@@ -51,9 +51,9 @@ function SelectedCard(props) {
             <tbody>
               <tr>
                 <td>14 Pouces HD</td>
-                <td>i3-1115G4</td>
-                <td>4 Go</td>
-                <td>1 To HDD</td>
+                <td>{props.processeur}</td>
+                <td>{props.memoireRam}</td>
+                <td>{props.disqueDur}</td>
               </tr>
             </tbody>
           </table>
@@ -65,44 +65,27 @@ function SelectedCard(props) {
             <h1>Fiche Technique</h1>
             <div className="checkbox-container1">
               <label class="container1">
-                <div className="words">Marque: DELL</div>
+                <div className="words">Processeur: {props.processeur}</div>
                 <input type="checkbox" />
                 <span class="checkmark1"></span>
               </label>
+              <br></br>
               <label class="container1">
-                <div className="words">Processeur: Intel Core i3</div>
+                <div className="words">Mémoire: {props.memoireRam}</div>
                 <input type="checkbox" />
                 <span class="checkmark1"></span>
               </label>
+              <br></br>
               <label class="container1">
-                <div className="words">Mémoire: 4 Go</div>
+                <div className="words">Disque Dur : {props.disqueDur}</div>
                 <input type="checkbox" />
                 <span class="checkmark1"></span>
               </label>
+              <br></br>
               <label class="container1">
                 <div className="words">
-                  Fréquence Processeur: 3.00 GHz up to 4,10 GHz Turbo max
+                  Carte Graphique: {props.carteGraphique}
                 </div>
-                <input type="checkbox" />
-                <span class="checkmark1"></span>
-              </label>
-              <label class="container1">
-                <div className="words">Résolution Ecran: 1366 x 768 pixels</div>
-                <input type="checkbox" />
-                <span class="checkmark1"></span>
-              </label>
-              <label class="container1">
-                <div className="words">Type Processeur Dual Core</div>
-                <input type="checkbox" />
-                <span class="checkmark1"></span>
-              </label>
-              <label class="container1">
-                <div className="words">Carte Graphique: Graphique Intégrée</div>
-                <input type="checkbox" />
-                <span class="checkmark1"></span>
-              </label>
-              <label class="container1">
-                <div className="words">TGarantie 1 an</div>
                 <input type="checkbox" />
                 <span class="checkmark1"></span>
               </label>
@@ -115,7 +98,9 @@ function SelectedCard(props) {
           <div className="underline-container">
             <h1>Are You Interested In This Laptop ?</h1>
             <div className="btn-container">
-              <button className="btn btn-yellow">Check it out</button>
+              <button className="btn btn-yellow" href={props.productURL}>
+                Check it out
+              </button>
             </div>
           </div>
         </div>
