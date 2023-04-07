@@ -4,6 +4,8 @@ import background from "../assets/background.png";
 import Slide from "./Carouselle";
 import BudgetSlider from "./BudgetSlider";
 import { createSearchParams, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Middle() {
   const [value, setValue] = React.useState([0, 10000]);
@@ -14,17 +16,24 @@ function Middle() {
   const handlePriceChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const handleCatecoryChange = (id) => {
     setSelectedCategory(id);
   };
+
   const handleSearch = () => {
-    navigate({
-      pathname: "/secondPage",
-      search: createSearchParams({
-        price: value.toString(),
-        category: selectedCategory,
-      }).toString(),
-    });
+    if (selectedCategory === null) {
+      toast.error("Please select a category");
+      return;
+    } else {
+      navigate({
+        pathname: "/secondPage",
+        search: createSearchParams({
+          price: value.toString(),
+          category: selectedCategory,
+        }).toString(),
+      });
+    }
   };
 
   return (
@@ -58,6 +67,7 @@ function Middle() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

@@ -30,7 +30,7 @@ function ThirdPage() {
   };
   useEffect(() => {
     fetchData();
-  });
+  }, []);
   return (
     <>
       <Toolbar></Toolbar>
