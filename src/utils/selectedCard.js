@@ -150,7 +150,7 @@ function SelectedCard(props) {
         </div>
       </form>
       <div className="right-side-container">
-        <Suggestion></Suggestion>
+        <Suggestion products={props.products}></Suggestion>
       </div>
     </div>
   );

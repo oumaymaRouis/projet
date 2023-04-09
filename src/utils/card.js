@@ -1,14 +1,11 @@
 import React from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { useSearchParams } from "react-router-dom";
-
+import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import "./card.css";
 
 function Card(props) {
   const navigate = useNavigate();
-  let [searchParams, setSearchParams] = useSearchParams();
   let params = new URL(document.location).searchParams;
   const price = params.get("price");
 

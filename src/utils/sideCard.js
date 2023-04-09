@@ -1,10 +1,25 @@
 import React from "react";
 import "./sideCard.css";
-
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 function RightCard(props) {
+  const navigate = useNavigate();
+  let params = new URL(document.location).searchParams;
+  const price = params.get("price");
+
+  const handleButtonClick = () => {
+    navigate({
+      pathname: "/thirdpage",
+      search: createSearchParams({
+        title: props.title,
+        price: price,
+        category: params.get("category"),
+      }).toString(),
+    });
+  };
+
   return (
     <div className="main-right-side-container">
       <div className="right-card">
@@ -20,7 +35,9 @@ function RightCard(props) {
         </div>
       </div>
       <div className="right-button-container">
-        <button className="right-card-button">View</button>
+        <button className="right-card-button" onClick={handleButtonClick}>
+          View
+        </button>
         <FontAwesomeIcon icon={faBookmark} className="icon-view" />
       </div>
     </div>

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import SelectedCard from "../utils/selectedCard";
 
-const SelectedProduct = ({ product }) => {
+const SelectedProduct = ({ product, products }) => {
   return (
     <div className="main-form-container1">
       {product && (
         <div className="last-cards-container">
           <SelectedCard
+            products={products}
             key={1}
             title={product.name}
             ecran={product.ecran}
