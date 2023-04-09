@@ -20,7 +20,7 @@ export default function Price({ value, onPriceChange }) {
           onChange={onPriceChange}
           valueLabelDisplay="off"
           getAriaValueText={valuetext}
-          min={0}
+          min={500}
           max={10000}
           step={100}
         />

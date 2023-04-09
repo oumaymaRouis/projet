@@ -5,20 +5,18 @@ import "../styles/sideBar.css";
 
 const options1 = [
   { label: "Gaming", value: "option1" },
-  { label: "Portable", value: "option2" },
-  { label: "Portable Pro", value: "option3" },
+  { label: "Performance", value: "option2" },
+  { label: "Basic", value: "option3" },
   { label: "Mac", value: "option4" },
-  { label: "Ultrabook", value: "option5" },
-  { label: "Bureau", value: "option6" },
 ];
 
 const options2 = [
-  { label: "0 TND - 100TND", value: "option1" },
-  { label: "101 TND - 200TND", value: "option2" },
-  { label: "201 TND - 500 TND", value: "option3" },
-  { label: "501 TND - 750 TND", value: "option4" },
-  { label: "751 TND - 1000 TND", value: "option5" },
-  { label: "+1000", value: "option6" },
+  { label: "500 TND - 1000TND", value: "option1" },
+  { label: "1000 TND - 2000TND", value: "option2" },
+  { label: "2100 TND - 3000 TND", value: "option3" },
+  { label: "3100 TND - 5000 TND", value: "option4" },
+  { label: "5100 TND - 7000 TND", value: "option5" },
+  { label: "+7000", value: "option6" },
 ];
 
 const SideBar = () => {

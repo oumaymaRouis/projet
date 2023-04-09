@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Middle() {
-  const [value, setValue] = React.useState([0, 10000]);
+  const [value, setValue] = React.useState([500, 10000]);
   const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   const navigate = useNavigate();
