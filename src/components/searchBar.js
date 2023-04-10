@@ -16,8 +16,8 @@ class SearchBar extends Component {
             />
             <CFormInput
               className="input"
-              placeholder="500 TND - 3850 TND"
-              aria-label="500 TND - 3850 TND"
+              placeholder="500 TND - 10000 TND"
+              aria-label="500 TND - 10000 TND"
             />
             <CButton className="search-button" type="button" id="button-addon2">
               Search

@@ -56,8 +56,12 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
             </select>
           </div>
         </div>
-        <div className="content-container">
-          {sortedProductNames.length > 0 && (
+        {productCount === 0 ? (
+          <div className="message-container">
+            <p>There are 0 laptops.</p>
+          </div>
+        ) : (
+          <div className="content-container">
             <div className="cards-container">
               {sortedProductNames.map((productName, idx) => (
                 <Card
@@ -71,8 +75,8 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
                 ></Card>
               ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </form>
     </div>
   );

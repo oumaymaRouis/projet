@@ -41,7 +41,7 @@ export default function Slide({
           onClick={() => onCategoryClick(1)}
           className={`first-choice ${selectedCategory(1)}`}
         >
-          <CarousselImg img={macbook} name={"MacBook"} />
+          <CarousselImg img={GamingLaptop} name={"Gaming"} />
         </div>
         <div
           onClick={() => onCategoryClick(2)}
@@ -59,7 +59,7 @@ export default function Slide({
           onClick={() => onCategoryClick(4)}
           className={`card-five ${selectedCategory(4)}`}
         >
-          <CarousselImg img={GamingLaptop} name={"Gaming"} />
+          <CarousselImg img={macbook} name={"MacBook"} />
         </div>
       </Carousel>
       <div className="btn-container">
