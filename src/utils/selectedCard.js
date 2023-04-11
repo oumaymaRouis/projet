@@ -84,48 +84,48 @@ function SelectedCard(props) {
           <div className="fiche-container">
             <h1>Fiche Technique</h1>
             <div className="checkbox-container1">
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Marque: {props.pcMarque}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Ecran: {props.ecran}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Resolution: {props.resolution}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Processeur: {props.processeur}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Mémoire: {props.memoireRam}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">Disque Dur : {props.disqueDur}</div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
               <br></br>
-              <label class="container1">
+              <label className="container1">
                 <div className="words">
                   Carte Graphique: {props.carteGraphique}
                 </div>
                 <input type="checkbox" />
-                <span class="checkmark1"></span>
+                <span className="checkmark1"></span>
               </label>
             </div>
           </div>

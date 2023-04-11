@@ -4,7 +4,6 @@ import SideBar from "../components/sideBar";
 import Toolbar from "../components/toolbar";
 import Footer from "../components/Footer";
 import SelectedProduct from "../components/SelectedProduct";
-import { getProducts } from "../utils/api";
 import { useLocation } from "react-router-dom";
 import { ProductsContext } from "../contexts/ProductsContext";
 
@@ -15,7 +14,7 @@ function ThirdPage() {
   const range = price ? price.split(",") : [];
   const [mainProduct, setmainProduct] = useState({});
   const [Products, SetProducts] = useState([]);
-  const context = useContext(ProductsContext);
+  const { getProducts } = useContext(ProductsContext);
 
   function selectProducts(array, selectedScore) {
     let sortedArray = array.sort(function (a, b) {
@@ -29,13 +28,20 @@ function ThirdPage() {
 
   const fetchData = async () => {
     try {
+      const response = await fetch(
+        `https://9c37-197-238-250-90.ngrok-free.app/Getpc?title=${params.get(
+          "title"
+        )}`
+      );
+      console.log(response, "hello");
+      const data = await response.json();
+      const currentProduct = data.find((p) => p.name === params.get("title"));
       const products = await getProducts({
         categoryId: params.get("category"),
         minPrice: range[0],
         maxPrice: range[1],
       });
-      var currentProduct = products.find((p) => p.name === params.get("title"));
-      var sortedProduct = selectProducts(products, currentProduct.score);
+      const sortedProduct = selectProducts(products, currentProduct.score);
       SetProducts(sortedProduct);
       setmainProduct(currentProduct);
       console.log(currentProduct);

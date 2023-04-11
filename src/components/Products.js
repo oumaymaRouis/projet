@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "../utils/card";
-import { getProducts } from "../utils/api";
+import { ProductsContext } from "../contexts/ProductsContext";
 import "../styles/products.css";
 
 const Form = ({ categoryId, minPrice, maxPrice }) => {
+  const { getProducts } = useContext(ProductsContext);
   const [productNames, setProductNames] = useState([]);
   const [error, setError] = useState(null);
   const [productCount, setProductCount] = useState(0);

@@ -35,7 +35,11 @@ function Card(props) {
           <div className="stocking">
             <span
               className={`card-stock ${
-                props.stock === "En stock" ? "en-stock" : "hors-stock"
+                props.stock === "En stock"
+                  ? "en-stock"
+                  : props.stock === "Sur Commande"
+                  ? "sur-commande"
+                  : "hors-stock"
               }`}
             >
               {props.stock}
@@ -43,6 +47,12 @@ function Card(props) {
                 <FontAwesomeIcon
                   icon={faFloppyDisk}
                   style={{ color: "green" }}
+                  className="card-Disk"
+                />
+              ) : props.stock === "Sur Commande" ? (
+                <FontAwesomeIcon
+                  icon={faFloppyDisk}
+                  style={{ color: "yellow" }}
                   className="card-Disk"
                 />
               ) : (
