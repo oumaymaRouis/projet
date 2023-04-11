@@ -22,27 +22,36 @@ function SelectedCard(props) {
             <div className="nom-container">
               <h3>
                 <span className="societe">{props.societe}</span>
-                <span>
-                  <span
-                    className={`stock ${
-                      props.stock === "En stock" ? "en-stock" : "hors-stock"
-                    }`}
-                  >
-                    {props.stock}
-                    {props.stock === "En stock" ? (
-                      <FontAwesomeIcon
-                        icon={faFloppyDisk}
-                        style={{ color: "green" }}
-                        className="Disk"
-                      />
-                    ) : (
-                      <FontAwesomeIcon
-                        icon={faFloppyDisk}
-                        style={{ color: "red" }}
-                        className="Disk"
-                      />
-                    )}
-                  </span>
+
+                <span
+                  className={`card-stock ${
+                    props.stock === "En stock"
+                      ? "en-stock"
+                      : props.stock === "Sur Commande"
+                      ? "sur-commande"
+                      : "hors-stock"
+                  }`}
+                >
+                  {props.stock}
+                  {props.stock === "En stock" ? (
+                    <FontAwesomeIcon
+                      icon={faFloppyDisk}
+                      style={{ color: "green" }}
+                      className="card-Disk"
+                    />
+                  ) : props.stock === "Sur Commande" ? (
+                    <FontAwesomeIcon
+                      icon={faFloppyDisk}
+                      style={{ color: "yellow" }}
+                      className="card-Disk"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faFloppyDisk}
+                      style={{ color: "red" }}
+                      className="card-Disk"
+                    />
+                  )}
                 </span>
               </h3>
 

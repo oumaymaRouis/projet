@@ -4,12 +4,13 @@ import RightCard from "../utils/sideCard";
 function Suggestion({ products }) {
   return (
     <div className="right-form-container">
-      {products.map((products) => (
+      {products.map((product, index) => (
         <RightCard
-          image={products.imagepc}
-          title={products.name.slice(18, 50) + "  -..."}
-          price={products.price}
-          societe={products.boutique}
+          key={index}
+          image={product.imagepc}
+          title={product.name.slice(18, 50) + "  -..."}
+          price={product.price}
+          societe={product.boutique}
         ></RightCard>
       ))}
     </div>

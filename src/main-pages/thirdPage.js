@@ -14,7 +14,7 @@ function ThirdPage() {
   const range = price ? price.split(",") : [];
   const [mainProduct, setmainProduct] = useState({});
   const [Products, SetProducts] = useState([]);
-  const { getProducts } = useContext(ProductsContext);
+  const { getProducts, getProductByTitle } = useContext(ProductsContext);
 
   function selectProducts(array, selectedScore) {
     let sortedArray = array.sort(function (a, b) {
@@ -28,20 +28,13 @@ function ThirdPage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        `https://9c37-197-238-250-90.ngrok-free.app/Getpc?title=${params.get(
-          "title"
-        )}`
-      );
-      console.log(response, "hello");
-      const data = await response.json();
-      const currentProduct = data.find((p) => p.name === params.get("title"));
       const products = await getProducts({
         categoryId: params.get("category"),
         minPrice: range[0],
         maxPrice: range[1],
       });
-      const sortedProduct = selectProducts(products, currentProduct.score);
+      var currentProduct = await getProductByTitle(params.get("title"));
+      var sortedProduct = selectProducts(products, currentProduct.score);
       SetProducts(sortedProduct);
       setmainProduct(currentProduct);
       console.log(currentProduct);
@@ -52,7 +45,7 @@ function ThirdPage() {
 
   useEffect(() => {
     fetchData();
-  }, [location.search]);
+  }, [params.get("title"), params.get("category")]);
 
   return (
     <>
