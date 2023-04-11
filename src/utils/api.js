@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://5e70-197-244-93-57.ngrok-free.app";
+const API_URL = "https://b4ae-196-234-125-11.ngrok-free.app";
 
 const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
   try {
@@ -12,8 +12,7 @@ const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
     };
     const response = await axios.get(url, requestOptions);
     const formatedArray = [];
-    console.clear();
-    console.log(response.data);
+
     for (let key in response.data) {
       formatedArray.push({
         name: key,

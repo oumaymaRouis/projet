@@ -6,16 +6,13 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 function RightCard(props) {
   const navigate = useNavigate();
-  let params = new URL(document.location).searchParams;
-  const price = params.get("price");
 
   const handleButtonClick = () => {
     navigate({
       pathname: "/thirdpage",
       search: createSearchParams({
         title: props.title,
-        price: price,
-        category: params.get("category"),
+        price: props.price,
       }).toString(),
     });
   };

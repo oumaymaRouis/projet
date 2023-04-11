@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SearchBar from "../components/searchBar";
 import SideBar from "../components/sideBar";
 import Toolbar from "../components/toolbar";
 import Footer from "../components/Footer";
 import SelectedProduct from "../components/SelectedProduct";
 import { getProducts } from "../utils/api";
+import { useLocation } from "react-router-dom";
+import { ProductsContext } from "../contexts/ProductsContext";
 
 function ThirdPage() {
+  let location = useLocation();
   let params = new URL(document.location).searchParams;
   const price = params.get("price");
   const range = price ? price.split(",") : [];
   const [mainProduct, setmainProduct] = useState({});
   const [Products, SetProducts] = useState([]);
+  const context = useContext(ProductsContext);
 
   function selectProducts(array, selectedScore) {
     let sortedArray = array.sort(function (a, b) {
@@ -35,12 +39,14 @@ function ThirdPage() {
       SetProducts(sortedProduct);
       setmainProduct(currentProduct);
       console.log(currentProduct);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [location.search]);
 
   return (
     <>
