@@ -5,7 +5,7 @@ export const ProductsContext = createContext(null);
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const API_URL = "https://9c37-197-238-250-90.ngrok-free.app";
+  const API_URL = "https://415d-197-244-128-123.ngrok-free.app";
 
   const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
     try {
@@ -74,7 +74,7 @@ export const ProductsProvider = ({ children }) => {
         });
       }
 
-      return formatedProduct;
+      return formatedProduct[0];
     } catch (error) {
       console.error(error);
       throw error;

@@ -8,7 +8,7 @@ function Suggestion({ products }) {
         <RightCard
           key={index}
           image={product.imagepc}
-          title={product.name.slice(18, 50) + "  -..."}
+          title={product.name}
           price={product.price}
           societe={product.boutique}
         ></RightCard>

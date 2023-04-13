@@ -4,7 +4,7 @@
   display: flex;
 }
 .title-container1 h1 {
-  margin-left: 500px;
+  margin-left: 600px;
   font-size: 25px;
   color: #ffffff;
   padding-top: 20px;
@@ -37,7 +37,10 @@
 .nom-container {
   height: 50px;
 }
-
+.card-stock {
+  color: white;
+  padding-left: 10px;
+}
 .societe {
   color: #fff2d2;
   font-weight: 500;
