@@ -1,4 +1,5 @@
 import React from "react";
+import { createSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +7,20 @@ import Suggestion from "../components/suggestions";
 import "./selectedCard.css";
 
 function SelectedCard(props) {
+  let params = new URL(document.location).searchParams;
+  let searchParams = createSearchParams({ category: params.get("category") });
+
+  let category;
+  if (searchParams.get("category") === "1") {
+    category = "Gaming";
+  } else if (searchParams.get("category") === "2") {
+    category = "Performance";
+  } else if (searchParams.get("category") === "3") {
+    category = "Basic";
+  } else if (searchParams.get("category") === "4") {
+    category = "Macbook";
+  }
+
   return (
     <div className="lastcard">
       <form>
@@ -62,7 +77,7 @@ function SelectedCard(props) {
               <div className="icon2-writing">
                 <h1>
                   <span className="category"> PC category · </span>
-                  <span className="gaming"> gaming , Ultrabook </span>
+                  <span className="gaming">{category}</span>
                 </h1>
               </div>
             </div>

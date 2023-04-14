@@ -5,7 +5,7 @@ export const ProductsContext = createContext(null);
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const API_URL = "https://415d-197-244-128-123.ngrok-free.app";
+  const API_URL = "https://5474-196-234-125-11.ngrok-free.app";
 
   const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
     try {
@@ -45,7 +45,7 @@ export const ProductsProvider = ({ children }) => {
 
   const getProductByTitle = async (title) => {
     try {
-      const url = `${API_URL}/Getpc?title=${title}`;
+      const url = `${API_URL}/Getpc?title="${title}"`;
       const requestOptions = {
         headers: {
           "ngrok-skip-browser-warning": "69420",
