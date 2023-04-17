@@ -7,7 +7,6 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
   const { getProducts } = useContext(ProductsContext);
   const [productNames, setProductNames] = useState([]);
   const [error, setError] = useState(null);
-  const [productCount, setProductCount] = useState(0);
   const [sortBy, setSortBy] = useState("date");
   console.log({ categoryId, minPrice, maxPrice });
 
@@ -16,7 +15,6 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
       try {
         const products = await getProducts({ categoryId, minPrice, maxPrice });
         setProductNames(products);
-        setProductCount(products.length);
         setError(null);
       } catch (error) {
         setError(error.message);
@@ -30,23 +28,25 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
     setSortBy(event.target.value);
   };
 
-  const sortedProductNames = [...productNames].sort((a, b) => {
-    switch (sortBy) {
-      case "price":
-        return a.price - b.price;
-      case "value":
-        return a.price / a.stock - b.price / b.stock;
-      default:
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-    }
-  });
-
+  const sortedProductNames =
+    productNames && Array.isArray(productNames) && productNames.length > 0
+      ? [...productNames].sort((a, b) => {
+          switch (sortBy) {
+            case "price":
+              return a.price - b.price;
+            case "value":
+              return a.price / a.stock - b.price / b.stock;
+            default:
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
+          }
+        })
+      : [];
   return (
     <div className="main-form-container">
       <form>
         <div className="title-container">
           <div className="title">
-            <p>Showing {productCount} Laptops</p>
+            <p>Showing {sortedProductNames.length} Laptops</p>
           </div>
           <div className="sort">
             <label htmlFor="sort-select">Sort by:</label>
@@ -57,7 +57,7 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
             </select>
           </div>
         </div>
-        {productCount === 0 ? (
+        {sortedProductNames.length === 0 ? (
           <div className="message-container">
             <p>There are 0 laptops.</p>
           </div>
