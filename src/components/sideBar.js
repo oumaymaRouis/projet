@@ -19,7 +19,7 @@ const options2 = [
   { label: "+7000", value: "option6" },
 ];
 
-const SideBar = ({ categoryId, onChangeCat }) => {
+const SideBar = ({ categoryId, onChangeCat, showMultiSelect }) => {
   const [selectedOptions, setSelectedOptions] = useState(categoryId);
   const [selectedSalary, setSelectedSalary] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -74,63 +74,66 @@ const SideBar = ({ categoryId, onChangeCat }) => {
           <button className="activate-button">Activate</button>
         </div>
       </div>
-      <div className="multiselect-dropdown">
-        <div className="categorie">
-          <button className="categorie-button" onClick={toggleDropdown}>
-            Categorie
-            <FontAwesomeIcon icon={faChevronDown} />
-          </button>
+      {showMultiSelect && (
+        <div className="multiselect-dropdown">
+          <div className="categorie">
+            <button className="categorie-button" onClick={toggleDropdown}>
+              Categorie
+              <FontAwesomeIcon icon={faChevronDown} />
+            </button>
 
-          {isOpen && (
-            <div className="dropdown-options1">
-              {options1.map((option) => (
-                <label key={option.value} className="container">
-                  <input
-                    name="cat"
-                    type="radio"
-                    value={option.value}
-                    checked={selectedOptions.includes(option.value)}
-                    onChange={(e) =>
-                      handleOptionChange(option.value, e.target.checked)
-                    }
-                  />
-                  <span class="checkmark"></span>
+            {isOpen && (
+              <div className="dropdown-options1">
+                {options1.map((option) => (
+                  <label key={option.value} className="container">
+                    <input
+                      name="cat"
+                      type="radio"
+                      value={option.value}
+                      checked={selectedOptions.includes(option.value)}
+                      onChange={(e) =>
+                        handleOptionChange(option.value, e.target.checked)
+                      }
+                    />
+                    <span class="checkmark"></span>
 
-                  {option.label}
+                    {option.label}
 
-                  <span className="checkbox-number">23</span>
-                </label>
-              ))}
-            </div>
-          )}
+                    <span className="checkbox-number">23</span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="salary">
+            <button className="salary-button" onClick={toggleSalaryDropdown}>
+              Salary
+              <FontAwesomeIcon icon={faChevronDown} />
+            </button>
+
+            {isSalaryOpen && (
+              <div className="dropdown-options2">
+                {options2.map((option) => (
+                  <label key={option.value} className="container">
+                    <input
+                      type="checkbox"
+                      value={option.value}
+                      checked={selectedSalary.includes(option.value)}
+                      onChange={(e) =>
+                        handleSalaryChange(option.value, e.target.checked)
+                      }
+                    />
+                    <span class="checkmark"></span>
+                    {option.label}
+                    <span className="checkbox-number">23</span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-        <div className="salary">
-          <button className="salary-button" onClick={toggleSalaryDropdown}>
-            Salary
-            <FontAwesomeIcon icon={faChevronDown} />
-          </button>
-
-          {isSalaryOpen && (
-            <div className="dropdown-options2">
-              {options2.map((option) => (
-                <label key={option.value} className="container">
-                  <input
-                    type="checkbox"
-                    value={option.value}
-                    checked={selectedSalary.includes(option.value)}
-                    onChange={(e) =>
-                      handleSalaryChange(option.value, e.target.checked)
-                    }
-                  />
-                  <span class="checkmark"></span>
-                  {option.label}
-                  <span className="checkbox-number">23</span>
-                </label>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      )}
+      ;
     </div>
   );
 };

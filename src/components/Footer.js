@@ -5,6 +5,7 @@ import {
   FaPaperPlane,
   FaTelegram,
   FaYoutube,
+  FaLinkedin,
 } from "react-icons/fa";
 import "../styles/Footer.css";
 
@@ -23,11 +24,11 @@ function Footer() {
           <a href="https://www.twitter.com/">
             <FaTwitter />
           </a>
-          <a href="https://www.facebook.com/">
+          <a href="https://www.facebook.com/ENVAST/?locale=fr_FR">
             <FaFacebook />
           </a>
-          <a href="https://www.telegram.com/">
-            <FaTelegram />
+          <a href="https://www.linkedin.com/company/envast">
+            <FaLinkedin />
           </a>
           <a href="https://www.youtube.com/">
             <FaYoutube />
