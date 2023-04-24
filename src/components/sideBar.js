@@ -4,10 +4,10 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "../styles/sideBar.css";
 
 const options1 = [
-  { label: "Gaming", value: "option1" },
-  { label: "Performance", value: "option2" },
-  { label: "Basic", value: "option3" },
-  { label: "Mac", value: "option4" },
+  { label: "Gaming", value: 1 },
+  { label: "Performance", value: 2 },
+  { label: "Basic", value: 3 },
+  { label: "Mac", value: 4 },
 ];
 
 const options2 = [
@@ -19,14 +19,17 @@ const options2 = [
   { label: "+7000", value: "option6" },
 ];
 
-const SideBar = () => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const SideBar = ({ categoryId, onChangeCat }) => {
+  const [selectedOptions, setSelectedOptions] = useState(categoryId);
   const [selectedSalary, setSelectedSalary] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isSalaryOpen, setIsSalaryOpen] = useState(false);
+  console.log(selectedOptions);
 
   const handleOptionChange = (optionValue, isSelected) => {
     if (isSelected) {
+      console.log(optionValue);
+      onChangeCat(optionValue);
       setSelectedOptions([...selectedOptions, optionValue]);
     } else {
       setSelectedOptions(
@@ -83,7 +86,8 @@ const SideBar = () => {
               {options1.map((option) => (
                 <label key={option.value} className="container">
                   <input
-                    type="checkbox"
+                    name="cat"
+                    type="radio"
                     value={option.value}
                     checked={selectedOptions.includes(option.value)}
                     onChange={(e) =>

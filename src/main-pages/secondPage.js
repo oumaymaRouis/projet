@@ -12,11 +12,19 @@ function SecondPage() {
   const price = params.get("price");
   const range = price ? price.split(",") : [];
 
+  const onChangeCat = (category) => {
+    const newParams = { category, price };
+    setSearchParams(newParams);
+  };
+
   return (
     <>
       <Toolbar></Toolbar>
       <SearchBar></SearchBar>
-      <SideBar></SideBar>
+      <SideBar
+        onChangeCat={onChangeCat}
+        categoryId={params.get("category")}
+      ></SideBar>
       <Products
         categoryId={params.get("category")}
         minPrice={range[0]}
