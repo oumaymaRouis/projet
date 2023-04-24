@@ -2,22 +2,26 @@ import React, { useState, useEffect, useContext } from "react";
 import Card from "../utils/card";
 import { ProductsContext } from "../contexts/ProductsContext";
 import "../styles/products.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Form = ({ categoryId, minPrice, maxPrice }) => {
   const { getProducts } = useContext(ProductsContext);
   const [productNames, setProductNames] = useState([]);
   const [error, setError] = useState(null);
   const [sortBy, setSortBy] = useState("date");
-  console.log({ categoryId, minPrice, maxPrice });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const products = await getProducts({ categoryId, minPrice, maxPrice });
         setProductNames(products);
         setError(null);
+        setIsLoading(false);
       } catch (error) {
         setError(error.message);
+        setIsLoading(false);
       }
     };
 
@@ -41,6 +45,7 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
           }
         })
       : [];
+
   return (
     <div className="main-form-container">
       <form>
@@ -57,7 +62,9 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
             </select>
           </div>
         </div>
-        {sortedProductNames.length === 0 ? (
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : sortedProductNames.length === 0 ? (
           <div className="message-container">
             <p>There are 0 laptops.</p>
           </div>
@@ -69,7 +76,7 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
                   key={idx}
                   image={productName.imagepc}
                   title={productName.name}
-                  description={productName.description.slice(0, 100) + "  -..."}
+                  description={productName.description.slice(0, 95) + "  -..."}
                   price={productName.price}
                   societe={productName.boutique}
                   stock={productName.stock}

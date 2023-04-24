@@ -51,7 +51,8 @@ function ThirdPage() {
     <>
       <Toolbar></Toolbar>
       <SearchBar></SearchBar>
-      <SideBar></SideBar>
+      <SideBar showMultiSelect={false} />
+
       <SelectedProduct
         categoryId={params.get("category")}
         products={Products}

@@ -22,6 +22,7 @@ function SecondPage() {
       <Toolbar></Toolbar>
       <SearchBar></SearchBar>
       <SideBar
+        showMultiSelect={true}
         onChangeCat={onChangeCat}
         categoryId={params.get("category")}
       ></SideBar>

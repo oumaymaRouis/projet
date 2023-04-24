@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SelectedCard from "../utils/selectedCard";
+import LoadingSpinner from "./LoadingSpinner";
 
 const SelectedProduct = ({ product, products }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [product, products]);
+
   return (
     <div className="main-form-container1">
-      {product && (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <div className="last-cards-container">
           <SelectedCard
             products={products}
