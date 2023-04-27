@@ -3,6 +3,8 @@ import Card from "../utils/card";
 import { ProductsContext } from "../contexts/ProductsContext";
 import "../styles/products.css";
 import LoadingSpinner from "./LoadingSpinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Form = ({ categoryId, minPrice, maxPrice }) => {
   const { getProducts } = useContext(ProductsContext);

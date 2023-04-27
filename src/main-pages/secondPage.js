@@ -5,7 +5,9 @@ import Products from "../components/Products";
 import SearchBar from "../components/searchBar";
 import SideBar from "../components/sideBar";
 import Toolbar from "../components/toolbar";
-
+import "./secondPage.css";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function SecondPage() {
   let [searchParams, setSearchParams] = useSearchParams();
   let params = new URL(document.location).searchParams;
@@ -20,7 +22,15 @@ function SecondPage() {
   return (
     <>
       <Toolbar></Toolbar>
-      <SearchBar></SearchBar>
+      <div class="btn-container">
+        <div class="homebutton">
+          <a href="/">
+            <FontAwesomeIcon icon={faHouse} />
+            Home
+          </a>
+        </div>
+      </div>
+
       <SideBar
         showMultiSelect={true}
         onChangeCat={onChangeCat}
