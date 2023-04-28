@@ -6,11 +6,11 @@
 
 .first-title {
   color: white;
-  padding-left: 140px;
+  padding-left: 15px;
 }
 .report-button-container {
   padding-top: 15px;
-  padding-right: 140px;
+  margin-right: 15px;
 }
 
 .report-button {
@@ -21,4 +21,40 @@
   border-radius: 10px;
   border: 0;
   font-weight: bold;
+}
+.homebutton {
+  right: 0px;
+  width: 120px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.btnn-container {
+  display: flex;
+  justify-content: space-around;
+}
+.homebutton button {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  padding: 0.3em 1em;
+  border: 1px solid;
+  font-family: "Open-Sans", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  text-decoration: none;
+  color: #1d232b;
+  cursor: pointer;
+  background: linear-gradient(-90deg, #ffd369, #ffebbb);
+  transition: color, border-color ease 0.3s;
+  border-radius: 2em;
+}
+.homebutton a:hover {
+  border-color: #ffd369;
+  background-color: #fde19f;
+  text-decoration: none;
+}
+.house {
+  padding-right: -10px;
+  margin-top: 1px;
+  margin-right: 7px;
 }

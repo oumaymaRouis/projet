@@ -6,9 +6,7 @@ import Footer from "../components/Footer";
 import SelectedProduct from "../components/SelectedProduct";
 import { useLocation } from "react-router-dom";
 import { ProductsContext } from "../contexts/ProductsContext";
-import "./secondPage.css";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function ThirdPage() {
   let location = useLocation();
   let params = new URL(document.location).searchParams;
@@ -51,16 +49,8 @@ function ThirdPage() {
 
   return (
     <>
-      <Toolbar></Toolbar>
+      <Toolbar showHome={true}></Toolbar>
       <SearchBar></SearchBar>
-      <div class="btn-container">
-        <div class="homebutton">
-          <a href="/">
-            <FontAwesomeIcon icon={faHouse} />
-            Home
-          </a>
-        </div>
-      </div>
 
       <SideBar showMultiSelect={false} />
 
