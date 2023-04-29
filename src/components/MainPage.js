@@ -55,7 +55,7 @@ function Middle() {
       <div className="middle-part">
         <div className="middle-writing">
           <h1>
-            Making A Decision <br /> A Bit Easier!
+            Making A Decision <br /> A Bit Easier !
           </h1>
         </div>
         <div className="price-container">

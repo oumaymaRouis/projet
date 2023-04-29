@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Secret from "./pages/Secret";
 import { ProductsProvider } from "./contexts/ProductsContext";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

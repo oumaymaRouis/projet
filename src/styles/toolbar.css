@@ -1,16 +1,20 @@
 .main-container {
   background-color: #3c413f;
   display: flex;
+  height: 80px;
   justify-content: space-between;
+  border-radius: 7px;
 }
 
 .first-title {
+  padding-top: 20px;
   color: white;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 .report-button-container {
   padding-top: 15px;
   margin-right: 15px;
+  padding-top: 20px;
 }
 
 .report-button {

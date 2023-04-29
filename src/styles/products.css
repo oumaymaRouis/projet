@@ -1,6 +1,7 @@
 .main-form-container {
   position: static;
   padding-left: 400px;
+  margin-top: 20px;
 }
 .message-container {
   color: #ffd369;
@@ -20,7 +21,7 @@
   font-size: 24px;
 }
 .sort {
-  padding-top: 35px;
+  padding-top: 20px;
   height: min-content;
 }
 
