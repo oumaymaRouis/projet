@@ -44,7 +44,7 @@ export default function Register() {
     <div className="auth-main-container">
       <div className="auth-container">
         <h2 className="auth-h2">Register Account</h2>
-        <div className="auth-form" onSubmit={(e) => handleSubmit(e)}>
+        <div className="auth-form">
           <div className="auth-div">
             <label htmlFor="email">Email</label>
             <input
@@ -69,7 +69,7 @@ export default function Register() {
               }
             ></input>
           </div>
-          <button className="auth-btn" type="submit">
+          <button className="auth-btn" type="submit" onClick={handleSubmit}>
             Submit
           </button>
           <span>
