@@ -1,7 +1,7 @@
 .main-container {
   background-color: #3c413f;
   display: flex;
-  height: 80px;
+  height: 70px;
   justify-content: space-between;
   border-radius: 7px;
 }
@@ -11,14 +11,17 @@
   color: white;
   padding-left: 20px;
 }
-.report-button-container {
-  padding-top: 15px;
+.logout-button-container {
   margin-right: 15px;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
-.report-button {
-  width: 145px;
+.logout-icon {
+  padding-left: 15px;
+}
+
+.logout-button {
+  width: 120px;
   height: 40px;
   color: #0d120e;
   background: linear-gradient(90deg, #ffd369, #ffebbb);
@@ -27,12 +30,14 @@
   font-weight: bold;
 }
 .homebutton {
+  height: 50px;
   right: 0px;
   width: 120px;
   padding-top: 15px;
   padding-left: 15px;
 }
 .btnn-container {
+  height: 50px;
   display: flex;
   justify-content: space-around;
 }
@@ -50,7 +55,7 @@
   cursor: pointer;
   background: linear-gradient(-90deg, #ffd369, #ffebbb);
   transition: color, border-color ease 0.3s;
-  border-radius: 2em;
+  border-radius: 10px;
 }
 .homebutton a:hover {
   border-color: #ffd369;

@@ -9,12 +9,15 @@ export default function Register() {
   const [values, setValues] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
   });
-
-  const generateError = (err) => toast.error(err);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (values.password !== values.confirmPassword) {
+      toast.error("Password and confirm password don't match");
+      return;
+    }
     try {
       const { data } = await axios.post(
         "http://localhost:4000/register",
@@ -29,8 +32,8 @@ export default function Register() {
       if (data) {
         if (data.errors) {
           const { email, password } = data.errors;
-          if (email) generateError(email);
-          else if (password) generateError(password);
+          if (email) toast.error(email);
+          else if (password) toast.error(password);
         } else {
           navigate("/");
         }
@@ -38,6 +41,10 @@ export default function Register() {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleInputChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   return (
@@ -52,9 +59,7 @@ export default function Register() {
               type="email"
               name="email"
               placeholder="Email"
-              onChange={(e) =>
-                setValues({ ...values, [e.target.name]: e.target.value })
-              }
+              onChange={handleInputChange}
             ></input>
           </div>
           <div className="auth-div">
@@ -64,9 +69,17 @@ export default function Register() {
               type="password"
               name="password"
               placeholder="Password"
-              onChange={(e) =>
-                setValues({ ...values, [e.target.name]: e.target.value })
-              }
+              onChange={handleInputChange}
+            ></input>
+          </div>
+          <div className="auth-div">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              className="auth-input"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              onChange={handleInputChange}
             ></input>
           </div>
           <button className="auth-btn" type="submit" onClick={handleSubmit}>

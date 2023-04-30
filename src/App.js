@@ -5,7 +5,6 @@ import SecondPage from "./main-pages/secondPage";
 import ThirdPage from "./main-pages/thirdPage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Secret from "./pages/Secret";
 import { ProductsProvider } from "./contexts/ProductsContext";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,8 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/" element={<Secret />} />
-          <Route path="/firstpage" element={<FirstPage />} />
+          <Route path="/" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />
           <Route path="/thirdpage" element={<ThirdPage />} />
         </Routes>
