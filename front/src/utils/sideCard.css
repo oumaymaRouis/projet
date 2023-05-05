@@ -20,12 +20,12 @@
   display: flex;
 }
 .right-card-title {
-  width: 200px;
+  width: 190px;
   font-size: 14px;
   color: #f6f6f6;
 }
 .right-card-price {
-  margin-right: -40px;
+  margin-right: -42px;
   font-size: 14px;
   color: #f6f6f6;
 }

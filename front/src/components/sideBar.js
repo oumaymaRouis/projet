@@ -5,8 +5,8 @@ import "../styles/sideBar.css";
 
 const options1 = [
   { label: "Gaming", value: 1 },
-  { label: "Performance", value: 2 },
-  { label: "Basic", value: 3 },
+  { label: "Basic", value: 2 },
+  { label: "Performance", value: 3 },
   { label: "Mac", value: 4 },
 ];
 

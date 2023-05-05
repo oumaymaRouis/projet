@@ -8,7 +8,7 @@ const SelectedProduct = ({ product, products }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [product, products]);

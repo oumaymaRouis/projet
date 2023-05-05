@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./Routes/AuthRoutes");
 const app = express();
 const cookieParser = require("cookie-parser");
-const mongoURI =
-  "mongodb+srv://rayanelaini1:Jo1GymX8CW98iHH6@cluster1.du7lz2w.mongodb.net/?retryWrites=true&w=majority";
+const mongoURI = "mongodb://localhost:27017";
 
 mongoose
   .connect(mongoURI, {

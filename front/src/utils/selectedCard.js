@@ -14,9 +14,9 @@ function SelectedCard(props) {
   if (searchParams.get("category") === "1") {
     category = "Gaming";
   } else if (searchParams.get("category") === "2") {
-    category = "Performance";
-  } else if (searchParams.get("category") === "3") {
     category = "Basic";
+  } else if (searchParams.get("category") === "3") {
+    category = "Performance";
   } else if (searchParams.get("category") === "4") {
     category = "Macbook";
   }
@@ -26,7 +26,8 @@ function SelectedCard(props) {
       <form>
         <div className="main">
           <div className="title-container1">
-            <h1> {props.price}</h1>
+            <h1 className="Selected-product-price"> {props.price} </h1>
+            <h1 className="TND">DT</h1>
           </div>
           <div className="img-container">
             <img className="dell" src={props.imagepc} />

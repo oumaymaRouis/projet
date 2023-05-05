@@ -3,11 +3,18 @@
   width: 700px;
   display: flex;
 }
-.title-container1 h1 {
+.TND {
+  font-size: 15px;
+  color: #ffffff;
+}
+.title-container1 {
   margin-left: 600px;
+  display: flex;
+  padding-top: 20px;
+}
+.Selected-product-price {
   font-size: 25px;
   color: #ffffff;
-  padding-top: 20px;
 }
 
 .img-container {

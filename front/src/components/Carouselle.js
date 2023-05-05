@@ -47,13 +47,13 @@ export default function Slide({
           onClick={() => onCategoryClick(2)}
           className={`card-three ${selectedCategory(2)}`}
         >
-          <CarousselImg img={laptop} name={"Performance"} />
+          <CarousselImg img={Basics} name={"Basics"} />
         </div>
         <div
           onClick={() => onCategoryClick(3)}
           className={`card-four ${selectedCategory(3)}`}
         >
-          <CarousselImg img={Basics} name={"Basics"} />
+          <CarousselImg img={laptop} name={"Performance"} />
         </div>
         <div
           onClick={() => onCategoryClick(4)}

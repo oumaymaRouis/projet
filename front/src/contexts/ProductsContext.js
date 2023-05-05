@@ -5,17 +5,13 @@ export const ProductsContext = createContext(null);
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const API_URL = "https://3e3b-197-244-97-78.ngrok-free.app";
+  const API_URL = "http://127.0.0.1:5550";
 
   const getProducts = async ({ categoryId, minPrice, maxPrice }) => {
     try {
       const url = `${API_URL}/predict2?choice=${categoryId}&budget_min=${minPrice}&budget_max=${maxPrice}`;
-      const requestOptions = {
-        headers: {
-          "ngrok-skip-browser-warning": "69420",
-        },
-      };
-      const response = await axios.get(url, requestOptions);
+
+      const response = await axios.get(url);
       const formatedArray = [];
 
       for (let key in response.data) {
