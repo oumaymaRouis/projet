@@ -34,13 +34,15 @@ export default function Login() {
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
-          navigate("/");
+          // Update the URL below to match the new URL of your backend endpoint that redirects to /admin
+          window.location.href = "http://localhost:4000/admin";
         }
       }
     } catch (err) {
       console.log(err);
     }
   };
+
   return (
     <div className="auth-main-container">
       <div className="auth-container">
