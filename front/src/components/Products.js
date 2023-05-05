@@ -40,8 +40,6 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
               return a.price - b.price;
             case "value":
               return a.price / a.stock - b.price / b.stock;
-            default:
-              return new Date(b.date).getTime() - new Date(a.date).getTime();
           }
         })
       : [];
@@ -56,7 +54,6 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
           <div className="sort">
             <label htmlFor="sort-select">Sort by:</label>
             <select id="sort-select" value={sortBy} onChange={handleSortChange}>
-              <option value="date">Date</option>
               <option value="price">Price</option>
               <option value="value">Value</option>
             </select>
