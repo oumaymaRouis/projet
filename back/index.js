@@ -15,6 +15,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
+    mongoose.set("strictQuery", true);
     console.log("db connection successful");
   })
   .catch((err) => {

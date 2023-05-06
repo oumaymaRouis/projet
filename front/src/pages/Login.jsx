@@ -18,7 +18,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
+      const response = await axios.post(
         "http://localhost:4000/login",
         {
           ...values,
@@ -27,15 +27,18 @@ export default function Login() {
           withCredentials: true,
         }
       );
-
-      if (data) {
-        if (data.errors) {
-          const { email, password } = data.errors;
+      console.log(response);
+      if (response.data) {
+        if (response.data.errors) {
+          const { email, password } = response.data.errors;
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
-          // Update the URL below to match the new URL of your backend endpoint that redirects to /admin
-          window.location.href = "http://localhost:4000/admin";
+          if (response.data.status == 302) {
+            window.location.href = "http://localhost:4000/admin";
+          } else {
+            window.location.href = "http://localhost:3000/";
+          }
         }
       }
     } catch (err) {

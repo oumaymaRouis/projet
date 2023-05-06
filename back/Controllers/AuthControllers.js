@@ -51,11 +51,10 @@ module.exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (email === "admin@admin.com" && password === "admin123") {
-      return res.redirect("http://localhost:4000/admin");
+      return res.status(200).send({ status: 302 });
     }
     const user = await UserModel.login(email, password);
     const token = createToken(user._id);
-
     res.cookie("jwt", token, {
       withCrdentials: true,
       httpOnly: false,
