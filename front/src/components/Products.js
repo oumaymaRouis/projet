@@ -36,10 +36,10 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
     productNames && Array.isArray(productNames) && productNames.length > 0
       ? [...productNames].sort((a, b) => {
           switch (sortBy) {
+            default:
+              return a.price / a.stock - b.price / b.stock;
             case "price":
               return a.price - b.price;
-            case "value":
-              return a.price / a.stock - b.price / b.stock;
           }
         })
       : [];
@@ -54,8 +54,8 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
           <div className="sort">
             <label htmlFor="sort-select">Sort by:</label>
             <select id="sort-select" value={sortBy} onChange={handleSortChange}>
-              <option value="price">Price</option>
               <option value="value">Value</option>
+              <option value="price">Price</option>
             </select>
           </div>
         </div>

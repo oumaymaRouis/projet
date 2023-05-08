@@ -11,21 +11,21 @@ const options1 = [
 ];
 
 const options2 = [
-  { label: "500 TND - 1000TND", value: "option1" },
-  { label: "1000 TND - 2000TND", value: "option2" },
-  { label: "2100 TND - 3000 TND", value: "option3" },
-  { label: "3100 TND - 5000 TND", value: "option4" },
-  { label: "5100 TND - 7000 TND", value: "option5" },
-  { label: "+7000", value: "option6" },
+  { label: "500 TND - 1000TND", value: "500,1000" },
+  { label: "1000 TND - 2000TND", value: "1000,2000" },
+  { label: "2100 TND - 3000 TND", value: "2100,3000" },
+  { label: "3100 TND - 5000 TND", value: "3100,5000" },
+  { label: "5100 TND - 7000 TND", value: "5100,7000" },
+  { label: "+7000", value: "7000,10000" },
 ];
 
-const SideBar = ({ categoryId, onChangeCat, showMultiSelect }) => {
+const SideBar = ({ categoryId, onChangeCat, showMultiSelect, price }) => {
   const [selectedOptions, setSelectedOptions] = useState(categoryId);
   const [selectedSalary, setSelectedSalary] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isSalaryOpen, setIsSalaryOpen] = useState(false);
   console.log(selectedOptions);
-
+  console.log(price);
   const handleOptionChange = (optionValue, isSelected) => {
     if (isSelected) {
       console.log(optionValue);
@@ -39,13 +39,7 @@ const SideBar = ({ categoryId, onChangeCat, showMultiSelect }) => {
   };
 
   const handleSalaryChange = (optionValue, isSelected) => {
-    if (isSelected) {
-      setSelectedSalary([...selectedSalary, optionValue]);
-    } else {
-      setSelectedSalary(
-        selectedSalary.filter((option) => option !== optionValue)
-      );
-    }
+    onChangeCat(categoryId, optionValue);
   };
 
   const toggleDropdown = () => {
@@ -118,7 +112,7 @@ const SideBar = ({ categoryId, onChangeCat, showMultiSelect }) => {
                     <input
                       type="checkbox"
                       value={option.value}
-                      checked={selectedSalary.includes(option.value)}
+                      checked={option.value == price}
                       onChange={(e) =>
                         handleSalaryChange(option.value, e.target.checked)
                       }

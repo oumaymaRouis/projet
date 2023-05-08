@@ -11,8 +11,8 @@ function SecondPage() {
   const price = params.get("price");
   const range = price ? price.split(",") : [];
 
-  const onChangeCat = (category) => {
-    const newParams = { category, price };
+  const onChangeCat = (category, newPrice) => {
+    const newParams = { category, price: newPrice ? newPrice : price };
     setSearchParams(newParams);
   };
 
@@ -24,6 +24,7 @@ function SecondPage() {
         showMultiSelect={true}
         onChangeCat={onChangeCat}
         categoryId={params.get("category")}
+        price={price}
       ></SideBar>
       <Products
         categoryId={params.get("category")}

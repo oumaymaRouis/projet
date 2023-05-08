@@ -174,7 +174,10 @@ function SelectedCard(props) {
         </div>
       </form>
       <div className="right-side-container">
-        <Suggestion products={props.products}></Suggestion>
+        <Suggestion
+          products={props.products}
+          currentProduct={props.title}
+        ></Suggestion>
       </div>
     </div>
   );

@@ -20,25 +20,69 @@ function RightCard(props) {
     });
   };
 
+  console.log(props.isCurrent);
+
   return (
-    <div className="main-right-side-container">
+    <div
+      className={
+        props.isCurrent == props.title
+          ? "main-right-side-container-selected"
+          : "main-right-side-container"
+      }
+    >
       <div className="right-card">
         <div className="right-card-image">
           <img src={props.image} alt={props.alt} width={"70px"} />
         </div>
         <div className="right-card-body">
           <div className="right-card-body-title">
-            <h2 className="right-card-title">{props.title}</h2>
-            <p className="right-card-price">{props.price}</p>
+            <h2
+              className={
+                props.isCurrent == props.title
+                  ? "right-card-title-selected"
+                  : "right-card-title"
+              }
+            >
+              {props.title}
+            </h2>
+            <p
+              className={
+                props.isCurrent == props.title
+                  ? "right-card-price-selected"
+                  : "right-card-price"
+              }
+            >
+              {props.price}
+            </p>
           </div>
-          <div className="right-societe">{props.societe}</div>
+          <div
+            className={
+              props.isCurrent == props.title
+                ? "right-societe-selected"
+                : "right-societe"
+            }
+          >
+            {props.societe}
+          </div>
         </div>
       </div>
       <div className="right-button-container">
-        <button className="right-card-button" onClick={handleButtonClick}>
+        <button
+          className={
+            props.isCurrent == props.title
+              ? "right-card-button-selected"
+              : "right-card-button"
+          }
+          onClick={handleButtonClick}
+        >
           View
         </button>
-        <FontAwesomeIcon icon={faBookmark} className="icon-view" />
+        <FontAwesomeIcon
+          icon={faBookmark}
+          className={
+            props.isCurrent == props.title ? "icon-view-selected" : "icon-view"
+          }
+        />
       </div>
     </div>
   );

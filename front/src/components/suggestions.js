@@ -1,7 +1,8 @@
 import React from "react";
 import RightCard from "../utils/sideCard";
 
-function Suggestion({ products }) {
+function Suggestion({ products, currentProduct }) {
+  console.log(currentProduct);
   return (
     <div className="right-form-container">
       {products.map((product, index) => (
@@ -11,6 +12,7 @@ function Suggestion({ products }) {
           title={product.name}
           price={product.price}
           societe={product.boutique}
+          isCurrent={currentProduct}
         ></RightCard>
       ))}
     </div>
