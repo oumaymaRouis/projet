@@ -7,7 +7,8 @@ const { default: AdminBro } = require("admin-bro");
 const options = require("./adminBro/admin.options");
 const buildAdminRouter = require("./adminBro/admin.router");
 const cookieParser = require("cookie-parser");
-const mongoURI = "mongodb://localhost:27017/admin";
+const mongoURI =
+  "mongodb+srv://rayanelaini1:Jo1GymX8CW98iHH6@cluster1.du7lz2w.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoURI, {

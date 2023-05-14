@@ -2,7 +2,7 @@ const { default: AdminBro } = require("admin-bro");
 const AdminBroMongoose = require("admin-bro-mongoose");
 
 AdminBro.registerAdapter(AdminBroMongoose);
-
+AdminBro.ACTIONS.new.isAccessible = false;
 const UserModel = require("../Models/UserModel");
 
 const options = {

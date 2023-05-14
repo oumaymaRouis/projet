@@ -34,10 +34,10 @@ export default function Login() {
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
-          if (response.data.status == 302) {
-            window.location.href = "http://localhost:4000/admin";
+          if (response.data.status === 302) {
+            navigate("/adminPage"); // Redirect to "/adminPage" if status is 302
           } else {
-            window.location.href = "http://localhost:3000/";
+            navigate("/"); // Redirect to the homepage ("/") for non-admin users
           }
         }
       }

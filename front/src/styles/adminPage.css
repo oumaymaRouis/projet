@@ -1,0 +1,50 @@
+.AdminPage-container {
+  display: flex;
+  flex-direction: column;
+}
+.AdminPage-bgr-clr {
+  background-color: #3c413f;
+  height: 600px;
+  width: 1300px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+.AdminPage-title {
+  font-size: 50px;
+  color: #ffffff;
+  padding-left: 500px;
+  padding-top: 150px;
+}
+.AdminPage-paragraph1 {
+  font-size: 25px;
+  color: #f6f6f6;
+  padding-left: 600px;
+}
+.AdminPage-paragraph2 {
+  font-size: 20px;
+  color: #f6f6f6;
+  padding-left: 320px;
+}
+.AdminPage-btn-container {
+  margin-top: 50px;
+  padding-left: 520px;
+}
+.Updateme-btn {
+  margin-right: 240px;
+  width: 170px;
+  height: 50px;
+  color: #0d120e;
+  background: linear-gradient(90deg, #ffd369, #ffebbb);
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}
+.checkusr-btn {
+  width: 170px;
+  height: 50px;
+  color: #0d120e;
+  background: linear-gradient(-90deg, #ffd369, #ffebbb);
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}
