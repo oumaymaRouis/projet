@@ -11,26 +11,26 @@
 }
 .AdminPage-title {
   font-size: 50px;
-  color: #ffffff;
-  padding-left: 500px;
-  padding-top: 150px;
+  color: #ffd369;
+  padding-left: 370px;
+  padding-top: 110px;
 }
 .AdminPage-paragraph1 {
   font-size: 25px;
   color: #f6f6f6;
-  padding-left: 600px;
+  padding-left: 481px;
 }
 .AdminPage-paragraph2 {
   font-size: 20px;
   color: #f6f6f6;
-  padding-left: 320px;
+  padding-left: 210px;
 }
 .AdminPage-btn-container {
   margin-top: 50px;
-  padding-left: 520px;
+  padding-left: 390px;
 }
 .Updateme-btn {
-  margin-right: 240px;
+  margin-right: 190px;
   width: 170px;
   height: 50px;
   color: #0d120e;
