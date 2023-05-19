@@ -1,7 +1,7 @@
 import React from "react";
 import { createSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import Suggestion from "../components/suggestions";
 import "./selectedCard.css";
@@ -20,7 +20,9 @@ function SelectedCard(props) {
   } else if (searchParams.get("category") === "4") {
     category = "Macbook";
   }
-
+  const handleClick = () => {
+    console.log("Icon clicked!");
+  };
   return (
     <div className="lastcard">
       <form>
@@ -72,7 +74,9 @@ function SelectedCard(props) {
               </h3>
 
               <div className="icon2-container">
-                <FontAwesomeIcon icon={faBookmark} className="icon2" />
+                <button className="icon2" onClick={handleClick}>
+                  <FontAwesomeIcon icon={faHeart} />
+                </button>{" "}
                 <FontAwesomeIcon icon={faShareAlt} className="icon3" />
               </div>
               <div className="icon2-writing">

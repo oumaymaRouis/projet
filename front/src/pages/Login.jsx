@@ -35,9 +35,9 @@ export default function Login() {
           else if (password) generateError(password);
         } else {
           if (response.data.status === 302) {
-            navigate("/adminPage"); // Redirect to "/adminPage" if status is 302
+            navigate("/adminPage");
           } else {
-            navigate("/"); // Redirect to the homepage ("/") for non-admin users
+            navigate("/");
           }
         }
       }

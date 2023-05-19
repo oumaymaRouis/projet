@@ -1,0 +1,15 @@
+.wishes-icon {
+  margin-left: 740px;
+  margin-top: 50px;
+  height: 40px;
+}
+.wishes-container {
+  height: 40px;
+}
+.wishes-parag {
+  font-size: 40px;
+  color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}

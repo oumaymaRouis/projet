@@ -25,7 +25,7 @@ function RightCard(props) {
   return (
     <div
       className={
-        props.isCurrent == props.title
+        props.isCurrent === props.title
           ? "main-right-side-container-selected"
           : "main-right-side-container"
       }
@@ -38,7 +38,7 @@ function RightCard(props) {
           <div className="right-card-body-title">
             <h2
               className={
-                props.isCurrent == props.title
+                props.isCurrent === props.title
                   ? "right-card-title-selected"
                   : "right-card-title"
               }
@@ -47,7 +47,7 @@ function RightCard(props) {
             </h2>
             <p
               className={
-                props.isCurrent == props.title
+                props.isCurrent === props.title
                   ? "right-card-price-selected"
                   : "right-card-price"
               }
@@ -57,7 +57,7 @@ function RightCard(props) {
           </div>
           <div
             className={
-              props.isCurrent == props.title
+              props.isCurrent === props.title
                 ? "right-societe-selected"
                 : "right-societe"
             }
@@ -69,7 +69,7 @@ function RightCard(props) {
       <div className="right-button-container">
         <button
           className={
-            props.isCurrent == props.title
+            props.isCurrent === props.title
               ? "right-card-button-selected"
               : "right-card-button"
           }
@@ -77,12 +77,6 @@ function RightCard(props) {
         >
           View
         </button>
-        <FontAwesomeIcon
-          icon={faBookmark}
-          className={
-            props.isCurrent == props.title ? "icon-view-selected" : "icon-view"
-          }
-        />
       </div>
     </div>
   );

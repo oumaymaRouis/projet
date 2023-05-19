@@ -71,7 +71,12 @@
   color: #fff2d2;
   margin-left: 600px;
   font-size: 25px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
+
 .icon3 {
   color: #ffffff;
   font-size: 25px;

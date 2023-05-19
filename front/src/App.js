@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import AdminPage from "./main-pages/adminPage";
 import { ProductsProvider } from "./contexts/ProductsContext";
 import "react-toastify/dist/ReactToastify.css";
-
+import Wishlist from "./components/wishlist";
 function App() {
   return (
     <ProductsProvider>
@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />
           <Route path="/thirdpage" element={<ThirdPage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </Router>
     </ProductsProvider>

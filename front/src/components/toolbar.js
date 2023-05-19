@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "../styles/toolbar.css";
-
-const Toolbar = ({ showHome, showToast }) => {
+const Toolbar = ({ showHome, showToast, showWish }) => {
   const navigate = useNavigate();
   const [cookies, setCookie, removeCookie] = useCookies([]);
   const [isToastShown, setIsToastShown] = useState(false);
@@ -43,6 +42,10 @@ const Toolbar = ({ showHome, showToast }) => {
     navigate("/login");
   };
 
+  const handleWishlistClick = () => {
+    navigate("/wishlist");
+  };
+
   return (
     <div>
       <div className="main-container">
@@ -56,6 +59,19 @@ const Toolbar = ({ showHome, showToast }) => {
             </div>
           </div>
         )}
+        {showWish && (
+          <div className="wishlist-container">
+            <button className="wishlist" onClick={handleWishlistClick}>
+              <FontAwesomeIcon
+                className="wish-icon"
+                icon={faHeart}
+                style={{ color: "#ffd369" }}
+              />
+              WishList
+            </button>
+          </div>
+        )}
+
         <h2 className="first-title">PC Recommendation</h2>
         <div className="logout-button-container">
           <button className="logout-button" onClick={logOut}>
