@@ -8,6 +8,7 @@
 
 .first-title {
   color: white;
+  margin-right: 290px;
 }
 .logout-button-container {
   margin-right: 15px;
@@ -15,23 +16,23 @@
 }
 
 .logout-icon {
-  padding-left: 15px;
+  padding-left: 5px;
 }
 .wish-icon {
   padding-right: 6px;
 }
 .wishlist {
   padding-top: 22px;
-  padding-left: 15px;
   border: 0;
-  border-radius: 7px;
   background-color: #3c413f;
   color: #ffd369;
-  font-size: 21px;
+  font-size: 23px;
 }
-
+.wishlist-container {
+  width: 30px;
+}
 .logout-button {
-  width: 120px;
+  width: 50px;
   height: 40px;
   color: #0d120e;
   background: linear-gradient(90deg, #ffd369, #ffebbb);
@@ -42,9 +43,9 @@
 .homebutton {
   height: 50px;
   right: 0px;
-  width: 120px;
+  width: 10px;
   padding-top: 15px;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 .btnn-container {
   height: 50px;
@@ -53,6 +54,8 @@
 }
 .homebutton button {
   display: flex;
+  width: 65px;
+  height: 40px;
   justify-content: space-between;
   margin-bottom: 1em;
   padding: 0.3em 1em;

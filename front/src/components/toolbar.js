@@ -54,7 +54,6 @@ const Toolbar = ({ showHome, showToast, showWish }) => {
             <div className="homebutton">
               <button onClick={() => navigate("/")}>
                 <FontAwesomeIcon className="house" icon={faHouse} />
-                Home
               </button>
             </div>
           </div>
@@ -62,12 +61,7 @@ const Toolbar = ({ showHome, showToast, showWish }) => {
         {showWish && (
           <div className="wishlist-container">
             <button className="wishlist" onClick={handleWishlistClick}>
-              <FontAwesomeIcon
-                className="wish-icon"
-                icon={faHeart}
-                style={{ color: "#ffd369" }}
-              />
-              WishList
+              <FontAwesomeIcon className="wish-icon" icon={faHeart} />
             </button>
           </div>
         )}
@@ -75,7 +69,6 @@ const Toolbar = ({ showHome, showToast, showWish }) => {
         <h2 className="first-title">PC Recommendation</h2>
         <div className="logout-button-container">
           <button className="logout-button" onClick={logOut}>
-            Logout
             <FontAwesomeIcon
               className="logout-icon"
               icon={faRightFromBracket}

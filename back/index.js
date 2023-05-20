@@ -2,13 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./Routes/AuthRoutes");
+const wishListRoute = require("./Routes/wishListRoute");
 const app = express();
 const { default: AdminBro } = require("admin-bro");
 const options = require("./adminBro/admin.options");
 const buildAdminRouter = require("./adminBro/admin.router");
 const cookieParser = require("cookie-parser");
-const mongoURI =
-  "mongodb+srv://rayanelaini1:Jo1GymX8CW98iHH6@cluster1.du7lz2w.mongodb.net/?retryWrites=true&w=majority";
+const mongoURI = "mongodb://localhost:27017";
 
 mongoose
   .connect(mongoURI, {
@@ -34,6 +34,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(wishListRoute);
 app.use(cookieParser());
 app.use(express.json());
 app.use("/", authRoutes);

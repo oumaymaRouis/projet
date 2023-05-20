@@ -3,7 +3,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import "./card.css";
-
+import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 function Card(props) {
   const navigate = useNavigate();
   let params = new URL(document.location).searchParams;
@@ -65,9 +65,17 @@ function Card(props) {
             </span>
           </div>
         </div>
-        <button className="card-button" onClick={handleButtonClick}>
-          Check it out
-        </button>
+        <div className="heart">
+          <button className="card-button" onClick={handleButtonClick}>
+            Check it out
+          </button>
+          <button>
+            <FontAwesomeIcon
+              icon={faHeartCirclePlus}
+              className="heart-icon-card"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
