@@ -1,11 +1,15 @@
 import React from "react";
 import { createSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFloppyDisk,
+  faHeartCirclePlus,
+  faHeartCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import Suggestion from "../components/suggestions";
 import "./selectedCard.css";
-
+import { useState } from "react";
 function SelectedCard(props) {
   let params = new URL(document.location).searchParams;
   let searchParams = createSearchParams({ category: params.get("category") });
@@ -20,8 +24,11 @@ function SelectedCard(props) {
   } else if (searchParams.get("category") === "4") {
     category = "Macbook";
   }
-  const handleClick = () => {
-    console.log("Icon clicked!");
+  const [isHeartClicked, setHeartClicked] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setHeartClicked(true);
   };
   return (
     <div className="lastcard">
@@ -75,8 +82,18 @@ function SelectedCard(props) {
 
               <div className="icon2-container">
                 <button className="icon2" onClick={handleClick}>
-                  <FontAwesomeIcon icon={faHeart} />
-                </button>{" "}
+                  {isHeartClicked ? (
+                    <FontAwesomeIcon
+                      icon={faHeartCircleCheck}
+                      className="heart-icon"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faHeartCirclePlus}
+                      className="heart-icon"
+                    />
+                  )}
+                </button>
                 <FontAwesomeIcon icon={faShareAlt} className="icon3" />
               </div>
               <div className="icon2-writing">
