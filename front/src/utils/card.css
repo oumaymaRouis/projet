@@ -77,3 +77,13 @@
   border: 0;
   font-weight: bold;
 }
+.heart-icon-card {
+  color: #ffd369;
+  font-size: 23px;
+  padding-top: 10px;
+}
+.heart {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -33px;
+}
