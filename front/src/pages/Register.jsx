@@ -44,6 +44,7 @@ export default function Register() {
           else if (email) toast.error(email);
           else if (password) toast.error(password);
         } else {
+          localStorage.setItem("token", data.token);
           navigate("/");
         }
       }

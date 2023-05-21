@@ -6,17 +6,34 @@ module.exports.checkUser = (req, res, next) => {
   if (token) {
     jwt.verify(token, "secret key", async (err, decodedToken) => {
       if (err) {
-        res.json({ status: false });
+        return res.json({ status: false });
         next();
       } else {
         const user = await User.findById(decodedToken.id);
-        if (user) res.json({ status: true, user: user.username });
-        else res.json({ status: false });
-        next();
+        if (user) {
+          req.user = user;
+          next();
+        } else return res.json({ status: false });
       }
     });
   } else {
-    res.json({ status: false });
-    next();
+    if (req.headers.authorization) {
+      const apiToken = req.headers.authorization;
+      const token = apiToken.split(" ")[1];
+      jwt.verify(token, "secret key", async (err, decodedToken) => {
+        if (err) {
+          return res.json({ status: false });
+          next();
+        } else {
+          const user = await User.findById(decodedToken.id);
+          if (user) {
+            req.user = user;
+            next();
+          } else return res.json({ status: false });
+        }
+      });
+    } else {
+      return res.json({ status: false });
+    }
   }
 };

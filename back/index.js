@@ -34,10 +34,10 @@ app.use(
     credentials: true,
   })
 );
-app.use(wishListRoute);
+
 app.use(cookieParser());
 app.use(express.json());
-app.use("/", authRoutes);
+app.use("/", [authRoutes, wishListRoute]);
 
 const admin = new AdminBro(options);
 const router = buildAdminRouter(admin);

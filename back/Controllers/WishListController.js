@@ -1,23 +1,19 @@
-const { request, response } = require("express");
 const wishListModel = require("../Models/wishList");
 
-const post = (request, response) => {
-  const input = reques.body;
+const post = async (request, response) => {
+  console.log(request.user);
+  const input = request.body;
   let wishList = new wishListModel({
-    UserId: input.UserId,
-    productId: input.productId,
+    UserId: request.user._id.toString(),
+    ...input,
   });
-  wishListModel.create(wishList);
+  await wishListModel.create(wishList);
   response.send(wishList);
 };
 
 const getAll = async (request, response) => {
-  let result = await wishListModel.find();
-  response.send(result);
-};
-
-const getById = async (request, response) => {
-  let result = await wishListModel.findById(request.params.id);
+  let result = await wishListModel.find({ UserId: request.user._id });
+  console.log(result);
   response.send(result);
 };
 
@@ -33,7 +29,6 @@ const deleteById = async (request, response) => {
 const WishListController = {
   post,
   getAll,
-  getById,
   deleteById,
 };
 

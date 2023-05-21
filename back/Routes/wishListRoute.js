@@ -1,17 +1,15 @@
 const express = require("express");
 var route = express.Router();
 const WishListController = require("../Controllers/WishListController");
-var AuthMiddlewares = require("../Middlewares/AuthMiddlewares");
+var { checkUser } = require("../Middlewares/AuthMiddlewares");
 
-route.post("/wishlist/api/post", AuthMiddlewares, WishListController.post);
+route.post("/wishlist/api/post", checkUser, WishListController.post);
 
-route.get("/wishlist/api/get", AuthMiddlewares, WishListController.getAll);
-
-route.get("/wishlist/api/get", AuthMiddlewares, WishListController.getById);
+route.get("/wishlist/api/get", checkUser, WishListController.getAll);
 
 route.delete(
-  "/wishlist/api/delete",
-  AuthMiddlewares,
+  "/wishlist/api/delete/:id",
+  checkUser,
   WishListController.deleteById
 );
 

@@ -39,7 +39,7 @@ module.exports.register = async (req, res, next) => {
       httpOnly: false,
       maxAge: maxAge * 1000,
     });
-    res.status(201).json({ user: user._id, created: true });
+    res.status(201).json({ user: user._id, created: true, token });
   } catch (err) {
     console.log(err);
     const errors = handleErrors(err);
@@ -60,7 +60,7 @@ module.exports.login = async (req, res, next) => {
       httpOnly: false,
       maxAge: maxAge * 1000,
     });
-    res.status(200).json({ user: user._id, created: true });
+    res.status(200).json({ user: user._id, token });
   } catch (err) {
     console.log(err);
     const errors = handleErrors(err);
