@@ -39,6 +39,7 @@ const Toolbar = ({ showHome, showToast, showWish }) => {
 
   const logOut = () => {
     removeCookie("jwt");
+    localStorage.removeItem("token");
     navigate("/login");
   };
 

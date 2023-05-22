@@ -71,6 +71,7 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
               {sortedProductNames.map((productName, idx) => (
                 <Card
                   key={idx}
+                  fromHome={true}
                   image={productName.imagepc}
                   title={productName.name}
                   description={productName.description.slice(0, 95) + "  -..."}

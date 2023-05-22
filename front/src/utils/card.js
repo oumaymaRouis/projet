@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import "./card.css";
-import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
+
 function Card(props) {
   const navigate = useNavigate();
   let params = new URL(document.location).searchParams;
   const price = params.get("price");
-
+  const [wishList, setWishlist] = useState([]);
   const handleButtonClick = () => {
     navigate({
       pathname: "/thirdpage",
@@ -19,7 +20,41 @@ function Card(props) {
       }).toString(),
     });
   };
+  const [isHeartClicked, setHeartClicked] = useState(false);
+  const url = "http://localhost:4000/wishlist/api/";
+  var headers = {
+    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+  };
+  const getWishList = async () => {
+    await axios.get(url + "get", headers).then((res) => {
+      setWishlist(res.data);
+      var exist = res.data.find((r) => r.title == props.title);
+      if (exist) setHeartClicked(true);
+    });
+  };
+  const handleClickHeart = async () => {
+    await axios.post(url + "post", props, headers).then(() => {
+      setHeartClicked(true);
+    });
+  };
+  const handleDelete = async () => {
+    var whish = wishList.find((w) => w.title == props.title);
+    await axios.delete(url + "delete/" + whish._id, headers).then((res) => {
+      getWishList();
+      setHeartClicked(false);
+      if (!props.fromHome) {
+        props.getWishList();
+      }
+    });
+  };
 
+  useEffect(() => {
+    if (props.fromHome) getWishList();
+    else {
+      setHeartClicked(true);
+      setWishlist(props.wishlist);
+    }
+  }, []);
   return (
     <div className="card">
       <div className="upper-container">
@@ -65,17 +100,9 @@ function Card(props) {
             </span>
           </div>
         </div>
-        <div className="heart">
-          <button className="card-button" onClick={handleButtonClick}>
-            Check it out
-          </button>
-          <button>
-            <FontAwesomeIcon
-              icon={faHeartCirclePlus}
-              className="heart-icon-card"
-            />
-          </button>
-        </div>
+        <button className="card-button" onClick={handleButtonClick}>
+          Check it out
+        </button>
       </div>
     </div>
   );

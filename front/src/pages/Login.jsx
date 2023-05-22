@@ -34,6 +34,7 @@ export default function Login() {
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
+          localStorage.setItem("token", response.data.token);
           if (response.data.status === 302) {
             navigate("/adminPage");
           } else {
