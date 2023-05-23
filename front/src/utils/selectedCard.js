@@ -15,11 +15,13 @@ import "./selectedCard.css";
 
 function SelectedCard(props) {
   const [wishList, setWishlist] = useState([]);
-  const [isHeartClicked, setHeartClicked] = useState(true);
+  const [isHeartClicked, setHeartClicked] = useState(false);
   const url = "http://localhost:4000/wishlist/api/";
 
   let params = new URL(document.location).searchParams;
-  let searchParams = createSearchParams({ category: params.get("category") });
+  let searchParams = createSearchParams({
+    category: params.get("category") || 2,
+  });
 
   let category;
   if (searchParams.get("category") === "1") {
@@ -30,6 +32,8 @@ function SelectedCard(props) {
     category = "Performance";
   } else if (searchParams.get("category") === "4") {
     category = "Macbook";
+  } else {
+    category = "Basic";
   }
 
   var headers = {
@@ -39,6 +43,8 @@ function SelectedCard(props) {
     await axios.get(url + "get", headers).then((res) => {
       setWishlist(res.data);
       var exist = res.data.find((r) => r.title == props.title);
+      console.log(res.data);
+      console.log(exist);
       if (exist) setHeartClicked(true);
     });
   };
@@ -46,28 +52,23 @@ function SelectedCard(props) {
     await axios.post(url + "post", props, headers).then(() => {
       setHeartClicked(false);
       toast.success("The product was added successfully", { autoClose: 2000 });
+      getWishList2();
     });
   };
   const handleDelete = async () => {
     var whish = wishList.find((w) => w.title == props.title);
+    console.log(whish);
     await axios.delete(url + "delete/" + whish._id, headers).then((res) => {
       getWishList2();
-      setHeartClicked(true);
-      toast.success("The product was removed successfully", {
+      setHeartClicked(false);
+      toast.error("The product was removed successfully", {
         autoClose: 2000,
       });
-      if (!props.fromHome) {
-        props.getWishList2();
-      }
     });
   };
 
   useEffect(() => {
-    if (props.fromHome) getWishList2();
-    else {
-      setHeartClicked(true);
-      setWishlist(props.wishlist);
-    }
+    getWishList2();
   }, []);
 
   return (
@@ -121,7 +122,7 @@ function SelectedCard(props) {
               </h3>
 
               <div className="icon2-container">
-                {isHeartClicked ? (
+                {!isHeartClicked ? (
                   <button
                     type="button"
                     className="icon2"

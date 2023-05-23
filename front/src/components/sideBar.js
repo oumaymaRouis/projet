@@ -99,7 +99,7 @@ const SideBar = ({ categoryId, onChangeCat, showMultiSelect, price }) => {
           </div>
           <div className="salary">
             <button className="salary-button" onClick={toggleSalaryDropdown}>
-              Salary
+              Budget
               <FontAwesomeIcon icon={faChevronDown} />
             </button>
 

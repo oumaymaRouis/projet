@@ -23,8 +23,12 @@ function Card(props) {
       pathname: "/thirdpage",
       search: createSearchParams({
         title: props.title,
-        price: price,
-        category: params.get("category"),
+        price:
+          price ||
+          (parseInt(props.price) - 1000).toString() +
+            "," +
+            (parseInt(props.price) + 1000).toString(),
+        category: params.get("category") || 2,
       }).toString(),
     });
   };
@@ -43,19 +47,25 @@ function Card(props) {
     await axios.post(url + "post", props, headers).then(() => {
       setHeartClicked(true);
       toast.success("The product was added successfully", { autoClose: 2000 });
+      getWishList();
+      if (!props.fromHome) {
+        props.getWishList();
+      }
     });
   };
   const handleDelete = async () => {
+    console.log(wishList);
     var whish = wishList.find((w) => w.title == props.title);
     await axios.delete(url + "delete/" + whish._id, headers).then((res) => {
       getWishList();
-      setHeartClicked(false);
+
       toast.error("The product was removed successfully", {
         autoClose: 2000,
       });
-
       if (!props.fromHome) {
         props.getWishList();
+      } else {
+        setHeartClicked(false);
       }
     });
   };
@@ -69,7 +79,7 @@ function Card(props) {
   }, []);
 
   return (
-    <div className="card">
+    <div id={props.title} className="card">
       <div className="upper-container">
         <img src={props.image} alt={props.alt} className="card-image" />
         <div className="card-price">{props.price}</div>
