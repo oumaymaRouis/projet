@@ -52,11 +52,11 @@ export const ProductsProvider = ({ children }) => {
 
       for (let key in response.data) {
         formatedProduct.push({
-          name: key,
+          title: key,
           price: response.data[key][0],
           score: response.data[key][1],
           productURL: response.data[key][2],
-          imagepc: response.data[key][3],
+          image: response.data[key][3],
           pcMarque: response.data[key][4],
           processeur: response.data[key][5],
           ecran: response.data[key][6],
@@ -65,7 +65,7 @@ export const ProductsProvider = ({ children }) => {
           disqueDur: response.data[key][9],
           carteGraphique: response.data[key][10],
           stock: response.data[key][11],
-          boutique: response.data[key][12],
+          societe: response.data[key][12],
           description: response.data[key][13],
         });
       }

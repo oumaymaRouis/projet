@@ -18,7 +18,7 @@ function SecondPage() {
 
   return (
     <>
-      <Toolbar showHome={true} showToast={false} showWish={true}></Toolbar>
+      <Toolbar showToast={false}></Toolbar>
 
       <SideBar
         showMultiSelect={true}

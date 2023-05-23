@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
@@ -9,10 +11,13 @@ import {
   faHeartCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 function Card(props) {
+  const [isHeartClicked, setHeartClicked] = useState(false);
+  const url = "http://localhost:4000/wishlist/api/";
+  const [wishList, setWishlist] = useState([]);
   const navigate = useNavigate();
   let params = new URL(document.location).searchParams;
   const price = params.get("price");
-  const [wishList, setWishlist] = useState([]);
+
   const handleButtonClick = () => {
     navigate({
       pathname: "/thirdpage",
@@ -23,8 +28,7 @@ function Card(props) {
       }).toString(),
     });
   };
-  const [isHeartClicked, setHeartClicked] = useState(false);
-  const url = "http://localhost:4000/wishlist/api/";
+
   var headers = {
     headers: { Authorization: "Bearer " + localStorage.getItem("token") },
   };
@@ -38,6 +42,7 @@ function Card(props) {
   const handleClickHeart = async () => {
     await axios.post(url + "post", props, headers).then(() => {
       setHeartClicked(true);
+      toast.success("The product was added successfully", { autoClose: 2000 });
     });
   };
   const handleDelete = async () => {
@@ -45,6 +50,10 @@ function Card(props) {
     await axios.delete(url + "delete/" + whish._id, headers).then((res) => {
       getWishList();
       setHeartClicked(false);
+      toast.error("The product was removed successfully", {
+        autoClose: 2000,
+      });
+
       if (!props.fromHome) {
         props.getWishList();
       }
@@ -58,6 +67,7 @@ function Card(props) {
       setWishlist(props.wishlist);
     }
   }, []);
+
   return (
     <div className="card">
       <div className="upper-container">
@@ -126,6 +136,7 @@ function Card(props) {
           )}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

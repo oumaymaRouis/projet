@@ -54,7 +54,7 @@ const Form = ({ categoryId, minPrice, maxPrice }) => {
           <div className="sort">
             <label htmlFor="sort-select">Sort by:</label>
             <select id="sort-select" value={sortBy} onChange={handleSortChange}>
-              <option value="value">Value</option>
+              <option value="value">Utility</option>
               <option value="price">Price</option>
             </select>
           </div>

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { createSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,8 +12,12 @@ import {
 import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import Suggestion from "../components/suggestions";
 import "./selectedCard.css";
-import { useState } from "react";
+
 function SelectedCard(props) {
+  const [wishList, setWishlist] = useState([]);
+  const [isHeartClicked, setHeartClicked] = useState(true);
+  const url = "http://localhost:4000/wishlist/api/";
+
   let params = new URL(document.location).searchParams;
   let searchParams = createSearchParams({ category: params.get("category") });
 
@@ -24,12 +31,45 @@ function SelectedCard(props) {
   } else if (searchParams.get("category") === "4") {
     category = "Macbook";
   }
-  const [isHeartClicked, setHeartClicked] = useState(false);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setHeartClicked(true);
+  var headers = {
+    headers: { Authorization: "Bearer " + localStorage.getItem("token") },
   };
+  const getWishList2 = async () => {
+    await axios.get(url + "get", headers).then((res) => {
+      setWishlist(res.data);
+      var exist = res.data.find((r) => r.title == props.title);
+      if (exist) setHeartClicked(true);
+    });
+  };
+  const handleClickHeart = async () => {
+    await axios.post(url + "post", props, headers).then(() => {
+      setHeartClicked(false);
+      toast.success("The product was added successfully", { autoClose: 2000 });
+    });
+  };
+  const handleDelete = async () => {
+    var whish = wishList.find((w) => w.title == props.title);
+    await axios.delete(url + "delete/" + whish._id, headers).then((res) => {
+      getWishList2();
+      setHeartClicked(true);
+      toast.success("The product was removed successfully", {
+        autoClose: 2000,
+      });
+      if (!props.fromHome) {
+        props.getWishList2();
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (props.fromHome) getWishList2();
+    else {
+      setHeartClicked(true);
+      setWishlist(props.wishlist);
+    }
+  }, []);
+
   return (
     <div className="lastcard">
       <form>
@@ -39,7 +79,7 @@ function SelectedCard(props) {
             <h1 className="TND">DT</h1>
           </div>
           <div className="img-container">
-            <img className="dell" src={props.imagepc} />
+            <img className="dell" src={props.image} />
           </div>
           <div className="name-container">
             <h2>{props.title}</h2>
@@ -81,19 +121,24 @@ function SelectedCard(props) {
               </h3>
 
               <div className="icon2-container">
-                <button className="icon2" onClick={handleClick}>
-                  {isHeartClicked ? (
-                    <FontAwesomeIcon
-                      icon={faHeartCircleCheck}
-                      className="heart-icon"
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      icon={faHeartCirclePlus}
-                      className="heart-icon"
-                    />
-                  )}
-                </button>
+                {isHeartClicked ? (
+                  <button
+                    type="button"
+                    className="icon2"
+                    onClick={handleClickHeart}
+                  >
+                    <FontAwesomeIcon icon={faHeartCirclePlus} />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="icon2"
+                    onClick={handleDelete}
+                  >
+                    <FontAwesomeIcon icon={faHeartCircleCheck} />
+                  </button>
+                )}
+
                 <FontAwesomeIcon icon={faShareAlt} className="icon3" />
               </div>
               <div className="icon2-writing">
@@ -200,6 +245,7 @@ function SelectedCard(props) {
           currentProduct={props.title}
         ></Suggestion>
       </div>
+      <ToastContainer />
     </div>
   );
 }

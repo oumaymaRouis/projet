@@ -92,8 +92,6 @@ const SideBar = ({ categoryId, onChangeCat, showMultiSelect, price }) => {
                     <span class="checkmark"></span>
 
                     {option.label}
-
-                    <span className="checkbox-number">23</span>
                   </label>
                 ))}
               </div>
@@ -119,7 +117,6 @@ const SideBar = ({ categoryId, onChangeCat, showMultiSelect, price }) => {
                     />
                     <span class="checkmark"></span>
                     {option.label}
-                    <span className="checkbox-number">23</span>
                   </label>
                 ))}
               </div>

@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "../styles/toolbar.css";
-const Toolbar = ({ showHome, showToast, showWish }) => {
+const Toolbar = ({ showToast }) => {
   const navigate = useNavigate();
   const [cookies, setCookie, removeCookie] = useCookies([]);
   const [isToastShown, setIsToastShown] = useState(false);
@@ -48,33 +48,32 @@ const Toolbar = ({ showHome, showToast, showWish }) => {
   };
 
   return (
-    <div>
+    <div className="principal-container">
       <div className="main-container">
-        {showHome && (
-          <div className="btnn-container">
-            <div className="homebutton">
-              <button onClick={() => navigate("/")}>
-                <FontAwesomeIcon className="house" icon={faHouse} />
-              </button>
-            </div>
-          </div>
-        )}
-        {showWish && (
+        <div className="homebutton">
+          <button onClick={() => navigate("/")}>
+            <FontAwesomeIcon className="house" icon={faHouse} />
+          </button>
+        </div>
+
+        <div className="logo-container">
+          <h2 className="first-title">PC Recommendation</h2>
+        </div>
+        <div className="logout-wish">
           <div className="wishlist-container">
             <button className="wishlist" onClick={handleWishlistClick}>
               <FontAwesomeIcon className="wish-icon" icon={faHeart} />
             </button>
           </div>
-        )}
 
-        <h2 className="first-title">PC Recommendation</h2>
-        <div className="logout-button-container">
-          <button className="logout-button" onClick={logOut}>
-            <FontAwesomeIcon
-              className="logout-icon"
-              icon={faRightFromBracket}
-            />
-          </button>
+          <div className="logout-button-container">
+            <button className="logout-button" onClick={logOut}>
+              <FontAwesomeIcon
+                className="logout-icon"
+                icon={faRightFromBracket}
+              />
+            </button>
+          </div>
         </div>
       </div>
       {showToast && <ToastContainer></ToastContainer>}

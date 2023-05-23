@@ -22,19 +22,19 @@ const SelectedProduct = ({ product, products }) => {
           <SelectedCard
             products={products}
             key={1}
-            title={product.name}
+            title={product.title}
             ecran={product.ecran}
             resolution={product.resolution}
             pcMarque={product.pcMarque}
             description={product.description}
             price={product.price}
-            societe={product.boutique}
+            societe={product.societe}
             stock={product.stock}
             carteGraphique={product.carteGraphique}
             disqueDur={product.disqueDur}
             memoireRam={product.memoireRam}
             processeur={product.processeur}
-            imagepc={product.imagepc}
+            image={product.image}
             productURL={product.productURL}
           ></SelectedCard>
         </div>

@@ -6,7 +6,7 @@ import Toolbar from "../components/toolbar";
 function FirstPage() {
   return (
     <>
-      <Toolbar showHome={false} showToast={true} showWish={true}></Toolbar>
+      <Toolbar showToast={true}></Toolbar>
       {/* <Circle></Circle> */}
       <MainPage></MainPage>
       <Footer></Footer>

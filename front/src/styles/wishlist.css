@@ -11,7 +11,7 @@
   color: #f6f6f6;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: -15px;
 }
 .wishList-cards-container {
   display: flex;
@@ -19,5 +19,12 @@
   flex-wrap: wrap;
   align-items: center;
   margin-left: 30px;
-  margin-top: 30px;
+  margin-top: 25px;
+}
+.wish-number {
+  font-size: 18px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
 }
