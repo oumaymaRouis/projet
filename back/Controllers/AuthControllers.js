@@ -60,10 +60,15 @@ module.exports.login = async (req, res, next) => {
       httpOnly: false,
       maxAge: maxAge * 1000,
     });
-    res.status(200).json({ user: user._id, token });
+    res.status(200).json({ user, token });
   } catch (err) {
     console.log(err);
     const errors = handleErrors(err);
     res.json({ errors, created: false });
+  }
+};
+module.exports.me = async (req, res, next) => {
+  if (req.user) {
+    res.status(200).json({ user: req.user, status: true });
   }
 };

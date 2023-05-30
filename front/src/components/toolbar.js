@@ -26,7 +26,10 @@ const Toolbar = ({ showToast }) => {
           removeCookie("jwt");
           navigate("/login");
         } else {
-          const username = data.user.split("@")[0];
+          const username = data.user.username;
+          console.log(username);
+          console.log(isToastShown);
+          console.log(showToast);
           if (showToast && !isToastShown) {
             toast(`HI ${username}`, { theme: "dark" });
             setIsToastShown(true);
